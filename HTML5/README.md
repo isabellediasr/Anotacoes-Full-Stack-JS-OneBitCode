@@ -3,29 +3,20 @@
 - [Anotações de HTML5 ](#anotações-de-html5-)
   - [Aula 01 - Introdução ao Módulo](#aula-01---introdução-ao-módulo)
   - [Aula 02 - O que é HTML e como usá-lo](#aula-02---o-que-é-html-e-como-usá-lo)
-    - [Exemplo de tag:](#exemplo-de-tag)
-    - [Exemplo de tag com atributo:](#exemplo-de-tag-com-atributo)
-    - [Materiais importantes para ajudar nos estudos:](#materiais-importantes-para-ajudar-nos-estudos)
-    - [Aula 03 - Estrutura de uma página web](#aula-03---estrutura-de-uma-página-web)
-    - [Aula 04 - Sua primeira página HTML](#aula-04---sua-primeira-página-html)
-    - [Estrutura que será feita:](#estrutura-que-será-feita)
-    - [Usando a extensão Live Server no VS Code](#usando-a-extensão-live-server-no-vs-code)
+  - [Aula 03 - Estrutura de uma página web](#aula-03---estrutura-de-uma-página-web)
+  - [Aula 04 - Sua primeira página HTML](#aula-04---sua-primeira-página-html)
   - [Aula 05 - Elementos de Parágrafo e Título](#aula-05---elementos-de-parágrafo-e-título)
   - [Aula 06 - Elementos de Formatação](#aula-06---elementos-de-formatação)
-    - [Importante:](#importante)
   - [Aula 07 - Comentários](#aula-07---comentários)
   - [Aula 08 - Quiz 1](#aula-08---quiz-1)
   - [Aula 09 - Elementos de Imagem e Atributos](#aula-09---elementos-de-imagem-e-atributos)
-    - [Existem também alguns outros atributos que podem ser atribuídos na tag `<img>`:](#existem-também-alguns-outros-atributos-que-podem-ser-atribuídos-na-tag-img)
   - [Aula 10 - Formatos e Otimização de Imagem](#aula-10---formatos-e-otimização-de-imagem)
-    - [Como otimizar as imagens?](#como-otimizar-as-imagens)
   - [Aula 11 - Exercício 1: Escrevendo um artigo](#aula-11---exercício-1-escrevendo-um-artigo)
   - [Aula 12 - Resolução do Exercício 1](#aula-12---resolução-do-exercício-1)
   - [Aula 13 - Quebras de Linha e Régua Horizontal](#aula-13---quebras-de-linha-e-régua-horizontal)
   - [Aula 14 - Organização de Código com Div e Span](#aula-14---organização-de-código-com-div-e-span)
   - [Aula 15 - Trabalhando com Links](#aula-15---trabalhando-com-links)
   - [Aula 16 - Entendendo URLs Absolutas e Relativas](#aula-16---entendendo-urls-absolutas-e-relativas)
-    - [Dicas:](#dicas)
   - [Aula 17 - Links dentro de uma mesma página](#aula-17---links-dentro-de-uma-mesma-página)
   - [Aula 18 - Links Externos](#aula-18---links-externos)
   - [Aula 19 - Exercício 2: Criando um site com navegação](#aula-19---exercício-2-criando-um-site-com-navegação)
@@ -73,12 +64,12 @@
 * Usamos o que chamamos de **tag**, que representam os elementos que queremos exibir na página web.
 
 * Existem muitos tipos de elementos no **HTML**
-    * Títulos, parágrafos, listas, tabelas, etc
-    * Imagens, vídeos, áudios, etc
-    * Formulários, caixas de texto, botões, etc
-    * Divisores, cabeçalhos, rodapés, etc
+  * Títulos, parágrafos, listas, tabelas, etc
+  * Imagens, vídeos, áudios, etc
+  * Formulários, caixas de texto, botões, etc
+  * Divisores, cabeçalhos, rodapés, etc
 
-### Exemplo de tag:
+**Exemplo de tag:**
 
 ```html
 <p> Isso é uma tag </p>
@@ -86,18 +77,18 @@
 
 * Uma tag pode ter **atributos**, que são características especiais de um determinado elemento.
 
-### Exemplo de tag com atributo:
+**Exemplo de tag com atributo:**
 ```html
 <p id="paragrafo-principal" > Isso é uma tag com atributo </p>
 ```
 
-### Materiais importantes para ajudar nos estudos:
+**Materiais importantes para ajudar nos estudos:**
 
 ➡️ [Documentação da MDN](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
 
 ➡️ [Guias de w3schools](https://www.w3schools.com/html/html_intro.asp)
 
-### Aula 03 - Estrutura de uma página web
+## Aula 03 - Estrutura de uma página web
 
 * Uma págine web é composta por duas partes principais, o **head** e o **body**.
 
@@ -109,13 +100,13 @@
 
 * O `<body>` é feito **para os usuários**, ele é a página em si.
 
-### Aula 04 - Sua primeira página HTML
+## Aula 04 - Sua primeira página HTML
 
 * Ao criar o arquivo **HTML**, normalmente usamos **index.html** como nome padrão para a página principal porque os servidores web (como Apache e Nginx) a identificam automaticamente ao acessar o site sem especificar um arquivo. Isso facilita a navegação com URLs mais limpas (ex: www.meusite.com), melhora a organização do projeto e segue uma convenção histórica amplamente adotada no desenvolvimento web.
 
 * Existe uma forma mais fácil e rápida de escrever a estrutura primária do **HTML** que é digitando um **ponto de exclamação** ou escrever **"html"** na primeira linha.
 
-### Estrutura que será feita:
+**Estrutura que será feita:**
 
 ```html
 <!DOCTYPE html>
@@ -136,7 +127,7 @@
     * **Depois** mudamos a tag `<title>`, que define o título ou nome do documento.
 
 ---
-### Usando a extensão Live Server no VS Code
+**Usando a extensão Live Server no VS Code:**
 
 ➡️ Basta clicar com o botão direito em cima do arquivo **HTML** que deseja iniciar e clicar em **"Open with Live Server"**, que irá iniciar o server local e abrir o navegador com a página **HTML**.
 
@@ -170,7 +161,7 @@
     Uso em <b><i>ambos</i></b>
 ```
 
-### Importante:
+**Importante:**
 
 ➡️ **Negrito** e **Itálico** são elementos de estilização, ou seja, é pouco comum utilizar essas tags, pois estilização é feita no **CSS**.
 
@@ -204,7 +195,7 @@
 
 ✴️ **"./imagens/exemplo.png"** ➜ é a URL, o caminho do arquivo da imagem.
 
-### Existem também alguns outros atributos que podem ser atribuídos na tag `<img>`:
+**Existem também alguns outros atributos que podem ser atribuídos na tag `<img>`:**
 
 ```html
   <img src="./imagens/exemplo.png" loading="lazy" alt="Descrição da Imagem" width="400" height="400">
@@ -225,7 +216,7 @@
 * É sempre importante que uma página web esteja sempre otimizada. Páginas pesadas demoram a carregar e consomem mais dados, o que é ruim pra quem tem dados limitados, gerando uma experiência ruim.
 * Um dos aspectos que mais podem atrapalhar uma página web são suas imagens.
 
-### Como otimizar as imagens?
+**Como otimizar as imagens?**
 
 ➡️ Utilize os formatos corretos de imagem:
 
@@ -300,7 +291,7 @@
 | `<a href="https://www.google.com">Google</a>` | `<a href="//exemplo.html"></a>` |
 |---| - Se o arquivo que contém esse link estiver na mesma pasta, o navegador irá procurar o arquivo na mesma pasta |
 
-### Dicas:
+**Dicas:**
 
 ✴️ `../index.html` ➜ `../` a partir do nível anterior da pasta.
 
@@ -352,7 +343,34 @@
 
 ## Aula 18 - Links Externos
 
+* Para **links externos**, é necessário incluir o **protocolo** no início da **URL**, caso contrário, o navegador pode tratar o link como um **link relativo** e resultar em **erro**.
 
+| **ERRADO** | **CERTO** |
+| :---: | :---: |
+| `href="www.google.com"` |`href="https://www.google.com"` ou `href="//google.com"`|
+| --- | É possível usar o **protocolo relativo**, onde a **URL** começa com `//`, significando que o link usa o mesmo protocolo que a página atual.<br><br> `Exemplo:` Se a página atual estiver carregada em HTTPS, o navegador também usará HTTPS para abrir o link. |
+
+* Quando usado um link para sites externos, é interessante que os abra em novas janelas.
+
+* A tag `<target>` é usada para especificar onde o documento vinculado será aberto.
+
+```html
+  <a href="https://www.google.com" target="_self">Google</a>
+
+  <a href="https://www.google.com" target="_blank">Google</a>
+
+  <a href="https://www.google.com" target="_parent">Google</a>
+
+  <a href="https://www.google.com" target="_top">Google</a>
+```
+
+✴️ `target="_self"` padrão ➜ Abre o link na **mesma página** onde foi clicado.
+
+✴️ `target="_blank"` ➜ Abre o link em uma **nova aba ou janela**.
+
+✴️ `target="_parent"` ➜ Abre o link na **janela ou quadro pai (frame / iframe) do atual**. Se a página não estiver dentro de um frame, este valor se comporta como `_self`. 
+
+✴️ `target="_top"` ➜ Abre o link mais externo possível, ou seja, na janela inteira, removendo todos os frames. É útil para garantir que o link carregue na página principal, ignorando qualquer contexto de frame / iframe. Se a página não estiver dentro de um frame, este valor se comporta como `_self`. 
 
 ## Aula 19 - Exercício 2: Criando um site com navegação
 
@@ -364,7 +382,37 @@
 
 ## Aula 21 - Listas no HTML: ordenadas e não-ordenadas
 
+* Existem duas formas de listas:
 
+**Lista Ordenada**
+
+```html
+  <ol>
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+  </ol>
+```
+
+**Lista Não-Ordenada**
+
+```html
+  <ul>
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+  </ul>
+```
+
+✴️ `Lista Ordenada` ou `Ordered List` ➜ É um ista organizada de forma numérica. É representada pela tag `<ol>`.
+
+✴️ `Lista Não-Ordenada` ou `Unordered List ` ➜ É uma lista organizada por pontos, ou seja, sem ordem. É representada pela tag `<ul>`.
+
+* Cada item de uma lista é representada pela tag `<li>`. 
+
+**Dica de VS Code:**
+
+* Para criar um novo documento dentro de uma pasta de forma mais fácil, é só colocar antes do arquivo o nome da pasta a ser criada: `nova-pasta/index.html`.
 
 ## Aula 22 - Quiz 2
 
