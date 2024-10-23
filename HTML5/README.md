@@ -25,21 +25,22 @@
   - [Aula 22 - Quiz 2](#aula-22---quiz-2)
   - [Aula 23 - Exercício 3: Lista de Álbuns](#aula-23---exercício-3-lista-de-álbuns)
   - [Aula 24 - Resolução do Exercício 3](#aula-24---resolução-do-exercício-3)
-  - [Aula 25 - Exercício 4: Tabela de Inscritos](#aula-25---exercício-4-tabela-de-inscritos)
-  - [Aula 26 - Resolução do Exercício 4](#aula-26---resolução-do-exercício-4)
-  - [Aula 27 - O que são formulários](#aula-27---o-que-são-formulários)
-  - [Aula 28 - Conhecendo os Tipos de Input](#aula-28---conhecendo-os-tipos-de-input)
-  - [Aula 29 - Elementos select e textarea](#aula-29---elementos-select-e-textarea)
-  - [Aula 30 - Exercício 5: Formulário de Inscrição](#aula-30---exercício-5-formulário-de-inscrição)
-  - [Aula 31 - Resolução do Exercício 5](#aula-31---resolução-do-exercício-5)
-  - [Aula 32 - Recursos modernos no HTML5](#aula-32---recursos-modernos-no-html5)
-  - [Aula 33 - Elementos Semânticos](#aula-33---elementos-semânticos)
-  - [Aula 34 - WAI-ARIA e Atributos de Acessibilidade](#aula-34---wai-aria-e-atributos-de-acessibilidade)
-  - [Aula 35 - Quiz 3](#aula-35---quiz-3)
-  - [Aula 36 - Exercício Final: Criando um Site](#aula-36---exercício-final-criando-um-site)
-  - [Aula 37 - Resolução do Exercício Final](#aula-37---resolução-do-exercício-final)
-  - [Aula 38 - Encerramento](#aula-38---encerramento)
-  - [Aula 39 - Prova Final com Certificado](#aula-39---prova-final-com-certificado)
+  - [Aula 25 - Criação de tabelas](#aula-25---criação-de-tabelas)
+  - [Aula 26 - Exercício 4: Tabela de Inscritos](#aula-26---exercício-4-tabela-de-inscritos)
+  - [Aula 27 - Resolução do Exercício 4](#aula-27---resolução-do-exercício-4)
+  - [Aula 28 - O que são formulários](#aula-28---o-que-são-formulários)
+  - [Aula 29 - Conhecendo os Tipos de Input](#aula-29---conhecendo-os-tipos-de-input)
+  - [Aula 30 - Elementos select e textarea](#aula-30---elementos-select-e-textarea)
+  - [Aula 31 - Exercício 5: Formulário de Inscrição](#aula-31---exercício-5-formulário-de-inscrição)
+  - [Aula 32 - Resolução do Exercício 5](#aula-32---resolução-do-exercício-5)
+  - [Aula 33 - Recursos modernos no HTML5](#aula-33---recursos-modernos-no-html5)
+  - [Aula 34 - Elementos Semânticos](#aula-34---elementos-semânticos)
+  - [Aula 35 - WAI-ARIA e Atributos de Acessibilidade](#aula-35---wai-aria-e-atributos-de-acessibilidade)
+  - [Aula 36 - Quiz 3](#aula-36---quiz-3)
+  - [Aula 37 - Exercício Final: Criando um Site](#aula-37---exercício-final-criando-um-site)
+  - [Aula 38 - Resolução do Exercício Final](#aula-38---resolução-do-exercício-final)
+  - [Aula 39 - Encerramento](#aula-39---encerramento)
+  - [Aula 40 - Prova Final com Certificado](#aula-40---prova-final-com-certificado)
 
 
 ----
@@ -355,13 +356,13 @@
 * A tag `<target>` é usada para especificar onde o documento vinculado será aberto.
 
 ```html
-  <a href="https://www.google.com" target="_self">Google</a>
+  <a href="https://google.com" target="_self">Google</a>
 
-  <a href="https://www.google.com" target="_blank">Google</a>
+  <a href="https://google.com" target="_blank">Google</a>
 
-  <a href="https://www.google.com" target="_parent">Google</a>
+  <a href="https://google.com" target="_parent">Google</a>
 
-  <a href="https://www.google.com" target="_top">Google</a>
+  <a href="https://google.com" target="_top">Google</a>
 ```
 
 ✴️ `target="_self"` padrão ➜ Abre o link na **mesma página** onde foi clicado.
@@ -426,60 +427,270 @@
 
 
 
-## Aula 25 - Exercício 4: Tabela de Inscritos
+## Aula 25 - Criação de tabelas
+
+* As tabelas permitem organizar dados em linhas e colunas.
+* Para criar uma tabela, usamos a tag `<table>`
+* Dentro da tabela, para criar uma **linha nova** é usada a tag `<tr>` **(table row)** e para criar **novas células / dados** é usado `<td>` **(table data)**.
+* Para definir uma **célula header** para a tabela é usado `<th>` **(table header)**.
+* Para definir um **head** para a tabela é usado `<thead>` **(table head)**.
+* Para definir um **body** para a tabela é usado `<tbody>` **(table body)**.
+
+```html
+  <table>
+    <thead>
+      <tr>
+        <td>Coluna 1</td>
+        <td>Coluna 2</td>
+        <td>Coluna 3</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Dado 1</td>
+        <td>Dado 2</td>
+        <td>Dado 3</td>
+      </tr>
+    </tbody>
+  </table>
+```
+
+* É possível usar os atributos **"colspan"** e **"rowspan"** para manipular quantas células ou colunas a tag irá ocupar.
+
+```html
+  <table>
+    <thead>
+      <tr>
+        <td colspan="2">Informações Pessoais</td>
+        <td>Telefone</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Dado 1</td>
+        <td rowspan="2">(21) 91234-5678</td>
+      </tr>
+    </tbody>
+  </table>
+```
+
+## Aula 26 - Exercício 4: Tabela de Inscritos
 
 
 
-## Aula 26 - Resolução do Exercício 4
+## Aula 27 - Resolução do Exercício 4
 
 
 
-## Aula 27 - O que são formulários
+## Aula 28 - O que são formulários
+
+* **Formulários** são estruturas que permitem a coleta de informações dos usuários, como nome, e-mail, senha, entre outros.
+* As estruturas são compostas por elementos que possibilitam a criação de campos de entrada, botôes de envio e outras funcionalidades interativas.
+* Os **forms** são compostos por:
+
+✴️ Uma tag `<form>` com os atributos **"action"** e **"method"**.
+
+✴️ Campos a serem preenchidos, como `<input>` ou `<select>`.
+
+✴️ Um **botão** para o formulário.
+
+```html
+  <form action="https://google.com/search" method="get">
+    <label for="pesquisar">Pesquise o nome no google</label>
+    <input type="text" name="q" id="pesquisar">
+    <button tupe="submit">Pesquisar</button>
+  </form>  
+```
+
+✴️ `action=" "` ➜ Ação na qual queremos realizar.
+
+✴️ `method=" "` ➜ Método a usar.
+
+✴️ `<label>` ➜ Cria um rótulo para o input.
+
+✴️ `for=" "` ➜ Identifica (ID) o input que o `<label>` vai rotular.
+
+✴️ `name=" "` ➜ Identificação do campo de acordo com o back-end (nesse caso usamos "q", que vem de query, pois é como o google identifica no seu back-end).
+
+* Para fazer com que um campo seja obrigatório, é só inserir a instrução **"required"**.
+
+```html
+  <form>
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required>
+  </form>
+```
+
+## Aula 29 - Conhecendo os Tipos de Input
+
+* Existem muitos tipos de **input**, a melhor forma de identificar é pesquisando, mas alguns são:
+
+✴️ `<input type="text">` ➜ Inserir texto.
+
+✴️ `<input type="email">` ➜ Inserir e-mail.
+
+✴️ `<input type="password">` ➜ Inserir senha.
+
+✴️ `<input type="number">` ➜ Campo numérico.
+
+✴️ `<input type="radio">` ➜ Campo de escolha única (ex: gênero).
+
+✴️ `<input type="checkbox">` ➜ Campo de escolha múltipla, podendo selecionar ou deselecionar.
+
+✴️ `<input type="date">` ➜ Campo de data.
+
+✴️ `<input type="file">` ➜ Campo de envio de arquivos.
+
+## Aula 30 - Elementos select e textarea
+
+✴️ `<select>` ➜ Elemento de **seleção** a partir da lista de opções definidas que surgem abaixo da caixa.
+
+✴️ `<textarea>` ➜ Elemento que permite a **inserção** de um texto em múltiplas linhas.
+
+```html
+  <form>
+    <label for="opcao">Escolha:</label>
+    <select name="opcao" id="opcao">
+      <option value="opcao-1" selected disabled>Opção 1</option>
+      <option value="opcao-2">Opção 2</option>
+      <option value="opcao-3">Opção 3</option>
+    </select>
+
+    <label for="sobre">Sobre mim:</label>
+    <textarea name="sobre" id="sobre" cols="40" rows="6" placeholder="Escreva sobre você"></textarea>
+
+    <button type="submit">Enviar</button>
+  </form>
+```
+
+✴️ `<option>` ➜ Define as opções.
+
+✴️ `value` ➜ Valor que vai ser informado ao back-end.
+
+✴️ `selected` ➜ Atributo que faz com force a opção ser selecionada.
+
+✴️ `disabled` ➜ Atributo que desativa a seleção da opção.
+
+✴️ `cols=" "` ➜ Define o número de colunas da caixa de texto.
+
+✴️ `rows=" "` ➜ Define o número de linhas da caixa de texto.
+
+✴️ `placeholder=" "` ➜ Define um texto informativo dentro da caixa de texto, não influencia no texto que o usuário vai inserir.
+
+## Aula 31 - Exercício 5: Formulário de Inscrição
 
 
 
-## Aula 28 - Conhecendo os Tipos de Input
+## Aula 32 - Resolução do Exercício 5
 
 
 
-## Aula 29 - Elementos select e textarea
+## Aula 33 - Recursos modernos no HTML5
+
+* **Links Úteis**
+
+➡️ [Tag de vídeo HTML5](https://www.w3schools.com/html/html5_video.asp)
+
+➡️ [Tag de áudio HTML5](https://www.w3schools.com/html/html5_audio.asp)
+
+➡️ [Semantica no HTML5](https://www.w3schools.com/html/html5_semantic_elements.asp)
+
+➡️ [Documentação dos tipos de input](https://www.w3schools.com/html/html_form_input_types.asp)
+
+➡️ [Simulando os tipos novos de input](https://www.webfx.com/blog/images/assets/cdn.sixrevisions.com/demos/0345-new_html5_form_input_types/new-html5-form-input-types.html)
+
+
+## Aula 34 - Elementos Semânticos
+
+![Semântica HTML](media/semantica-html.png)
+
+✴️ `<header>` ➜ Define o cabeçalho.
+
+✴️ `<nav>` ➜ Define uma seção de navegação.
+
+✴️ `<main>` ➜ Define o conteúdo principal da página.
+
+✴️ `<section>` ➜ Define uma seção temática da página.
+
+✴️ `<article>` ➜ Define um conteúdo independente e completo dentro de uma página.
+
+✴️ `<aside>` ➜ Define um conteúdo relacionado que pode ser considerado como um **"sidebar"** ou uma informação complementar.
+
+✴️ `<footer>` ➜ Define o rodapé da página.
+
+✴️ `<address>` ➜ Define informações de contato.
+
+## Aula 35 - WAI-ARIA e Atributos de Acessibilidade
+
+* Os quatro pilares da acessibilidade segundo a WCAG **(Web Content Acessibility Guidelines)**:
+
+➡️ **Perceptível** ➜ Garantir que os conteúdos sejam apresentados de maneira clara e adaptável, permitindo a personalização. **(Conteúdos alternativos, apresentação personalizável, contraste na apresentação)**.
+
+➡️ **Operável** ➜ Facilitar a interação e a navegação, tornando a web utilizável por diversos dispositivos e tecnologias assistivas. **(Uso através do teclado, facilitar localização e navegação)**.
+
+➡️ **Compreensível** ➜ Tornar a informação e o funcionamento dos elementos claros e fáceis de entender. **(Textos legíveis e compreensíveis, correção e prevenção de erros)**.
+
+➡️ **Robusto** ➜ Criar conteúdos que possam ser interpretados de forma consistente por uma variedade de agentes do usuário. **(Zelar pela compatibilidade)**.
+
+* **WAI-ARIA** significa ***Web Accessibility Initiative - Accessible Rich Internet Applications***.
+
+* Tem como objetivo estender as capacidades dos elementos HTML para torná-los mais acessíveis e interativos.
+
+* Adiciona o suporte a tecnologias assistivas, como leitores de tela, por meio de atributos ARIA.
+
+**Alguns exemplos práticos:**
+
+✴️ Tornar as imagens acessíveis adicionando um texto alternativo (atributo "alt") para descrever a imagem.
+
+✴️ Usar corretamente os títulos (h1, h2, h3, etc) para estruturar o conteúdo e facilitar a navegação para leitores de tela.
+
+✴️ Criar formulários acessíveis usando rótulos (elemento "label") associados aos inputs do formulário.
+
+✴️ Usar cores para garantir contraste suficiente e permitir a distinção de elementos por usuários com deficiência visual.
+
+✴️ Tornar links e botões claros e descritivos para facilitar a compreensão do conteúdo e não usar ícones sem um rótulo.
+
+✴️ Utilização dos atributos "label", "role", "state" e "property" do WAI-ARIA para melhorar a semântica e comportamento de elementos.
+
+**Exemplo:**
+
+```html
+  <div role="alert" aria-labelledby="infoHeading" aria-describedby="infoContent">
+    <h2 id="infoHeading">Informação Importante</h2>
+    <p id="infoContent">Esta é uma mensagem informativa para os usuários.</p>
+  </div>
+```
+
+✴️ `role=" "` ➜ Define o propósito ou valor semântico de um elemento na interface de usuário. O uso de `role` ajuda a tornar componentes interativos e elementos personalizados acessíveis para pessoas com deficiência.
+
+| `role = " "` | Função |
+| :---: | :---: |
+| `alert` | Um alerta importante que requer a atenção imediata do usuário. |
+| `button` | Indica que o elemento age como um botão. |
+| `navigation` | Define uma área de navegação. |
+| `menu` | Define uma lista de opções ou comandos. |
+| `dialog` | Representa uma caixa de diálogo ou modal. |
+
+
+✴️ `aria-labelledby=" "` ➜ Identifica o elemento que rotula o elemento atual.  
+
+✴️ `aria-describedby=" "` ➜ Identifica o elemento que descreve o objeto. 
+
+
+## Aula 36 - Quiz 3
 
 
 
-## Aula 30 - Exercício 5: Formulário de Inscrição
+## Aula 37 - Exercício Final: Criando um Site
 
 
 
-## Aula 31 - Resolução do Exercício 5
+## Aula 38 - Resolução do Exercício Final
 
 
 
-## Aula 32 - Recursos modernos no HTML5
+## Aula 39 - Encerramento
 
 
 
-## Aula 33 - Elementos Semânticos
-
-
-
-## Aula 34 - WAI-ARIA e Atributos de Acessibilidade
-
-
-
-## Aula 35 - Quiz 3
-
-
-
-## Aula 36 - Exercício Final: Criando um Site
-
-
-
-## Aula 37 - Resolução do Exercício Final
-
-
-
-## Aula 38 - Encerramento
-
-
-
-## Aula 39 - Prova Final com Certificado
+## Aula 40 - Prova Final com Certificado
