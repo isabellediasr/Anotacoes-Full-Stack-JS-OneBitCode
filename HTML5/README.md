@@ -1,5 +1,7 @@
 # Anotações de HTML5 ![html logo](./media/logo-html5.png) #
 
+  
+  
 - [Anotações de HTML5 ](#anotações-de-html5-)
   - [Aula 01 - Introdução ao Módulo](#aula-01---introdução-ao-módulo)
   - [Aula 02 - O que é HTML e como usá-lo](#aula-02---o-que-é-html-e-como-usá-lo)
@@ -41,7 +43,6 @@
   - [Aula 38 - Resolução do Exercício Final](#aula-38---resolução-do-exercício-final)
   - [Aula 39 - Encerramento](#aula-39---encerramento)
   - [Aula 40 - Prova Final com Certificado](#aula-40---prova-final-com-certificado)
-
 
 ----
 
