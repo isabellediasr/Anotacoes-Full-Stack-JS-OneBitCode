@@ -1,54 +1,51 @@
-# Anotações de HTML5 ![html logo](./media/logo-html5.png) #
+# Anotações de HTML5 ![html logo](./media/logo-html5.png) 
 
-  
-  
-- [Anotações de HTML5 ](#anotações-de-html5-)
-  - [Aula 01 - Introdução ao Módulo](#aula-01---introdução-ao-módulo)
-  - [Aula 02 - O que é HTML e como usá-lo](#aula-02---o-que-é-html-e-como-usá-lo)
-  - [Aula 03 - Estrutura de uma página web](#aula-03---estrutura-de-uma-página-web)
-  - [Aula 04 - Sua primeira página HTML](#aula-04---sua-primeira-página-html)
-  - [Aula 05 - Elementos de Parágrafo e Título](#aula-05---elementos-de-parágrafo-e-título)
-  - [Aula 06 - Elementos de Formatação](#aula-06---elementos-de-formatação)
-  - [Aula 07 - Comentários](#aula-07---comentários)
-  - [Aula 08 - Quiz 1](#aula-08---quiz-1)
-  - [Aula 09 - Elementos de Imagem e Atributos](#aula-09---elementos-de-imagem-e-atributos)
-  - [Aula 10 - Formatos e Otimização de Imagem](#aula-10---formatos-e-otimização-de-imagem)
-  - [Aula 11 - Exercício 1: Escrevendo um artigo](#aula-11---exercício-1-escrevendo-um-artigo)
-  - [Aula 12 - Resolução do Exercício 1](#aula-12---resolução-do-exercício-1)
-  - [Aula 13 - Quebras de Linha e Régua Horizontal](#aula-13---quebras-de-linha-e-régua-horizontal)
-  - [Aula 14 - Organização de Código com Div e Span](#aula-14---organização-de-código-com-div-e-span)
-  - [Aula 15 - Trabalhando com Links](#aula-15---trabalhando-com-links)
-  - [Aula 16 - Entendendo URLs Absolutas e Relativas](#aula-16---entendendo-urls-absolutas-e-relativas)
-  - [Aula 17 - Links dentro de uma mesma página](#aula-17---links-dentro-de-uma-mesma-página)
-  - [Aula 18 - Links Externos](#aula-18---links-externos)
-  - [Aula 19 - Exercício 2: Criando um site com navegação](#aula-19---exercício-2-criando-um-site-com-navegação)
-  - [Aula 20 - Resolução do Exercício 2](#aula-20---resolução-do-exercício-2)
-  - [Aula 21 - Listas no HTML: ordenadas e não-ordenadas](#aula-21---listas-no-html-ordenadas-e-não-ordenadas)
-  - [Aula 22 - Quiz 2](#aula-22---quiz-2)
-  - [Aula 23 - Exercício 3: Lista de Álbuns](#aula-23---exercício-3-lista-de-álbuns)
-  - [Aula 24 - Resolução do Exercício 3](#aula-24---resolução-do-exercício-3)
-  - [Aula 25 - Criação de tabelas](#aula-25---criação-de-tabelas)
-  - [Aula 26 - Exercício 4: Tabela de Inscritos](#aula-26---exercício-4-tabela-de-inscritos)
-  - [Aula 27 - Resolução do Exercício 4](#aula-27---resolução-do-exercício-4)
-  - [Aula 28 - O que são formulários](#aula-28---o-que-são-formulários)
-  - [Aula 29 - Conhecendo os Tipos de Input](#aula-29---conhecendo-os-tipos-de-input)
-  - [Aula 30 - Elementos select e textarea](#aula-30---elementos-select-e-textarea)
-  - [Aula 31 - Exercício 5: Formulário de Inscrição](#aula-31---exercício-5-formulário-de-inscrição)
-  - [Aula 32 - Resolução do Exercício 5](#aula-32---resolução-do-exercício-5)
-  - [Aula 33 - Recursos modernos no HTML5](#aula-33---recursos-modernos-no-html5)
-  - [Aula 34 - Elementos Semânticos](#aula-34---elementos-semânticos)
-  - [Aula 35 - WAI-ARIA e Atributos de Acessibilidade](#aula-35---wai-aria-e-atributos-de-acessibilidade)
-  - [Aula 36 - Quiz 3](#aula-36---quiz-3)
-  - [Aula 37 - Exercício Final: Criando um Site](#aula-37---exercício-final-criando-um-site)
-  - [Aula 38 - Resolução do Exercício Final](#aula-38---resolução-do-exercício-final)
-  - [Aula 39 - Encerramento](#aula-39---encerramento)
-  - [Aula 40 - Prova Final com Certificado](#aula-40---prova-final-com-certificado)
+- [Aula 01 - Introdução ao Módulo](#aula-01---introdução-ao-módulo)
+- [Aula 02 - O que é HTML e como usá-lo](#aula-02---o-que-é-html-e-como-usá-lo)
+- [Aula 03 - Estrutura de uma página web](#aula-03---estrutura-de-uma-página-web)
+- [Aula 04 - Sua primeira página HTML](#aula-04---sua-primeira-página-html)
+- [Aula 05 - Elementos de Parágrafo e Título](#aula-05---elementos-de-parágrafo-e-título)
+- [Aula 06 - Elementos de Formatação](#aula-06---elementos-de-formatação)
+- [Aula 07 - Comentários](#aula-07---comentários)
+- [Aula 08 - Quiz 1](#aula-08---quiz-1)
+- [Aula 09 - Elementos de Imagem e Atributos](#aula-09---elementos-de-imagem-e-atributos)
+- [Aula 10 - Formatos e Otimização de Imagem](#aula-10---formatos-e-otimização-de-imagem)
+- [Aula 11 - Exercício 1: Escrevendo um artigo](#aula-11---exercício-1-escrevendo-um-artigo)
+- [Aula 12 - Resolução do Exercício 1](#aula-12---resolução-do-exercício-1)
+- [Aula 13 - Quebras de Linha e Régua Horizontal](#aula-13---quebras-de-linha-e-régua-horizontal)
+- [Aula 14 - Organização de Código com Div e Span](#aula-14---organização-de-código-com-div-e-span)
+- [Aula 15 - Trabalhando com Links](#aula-15---trabalhando-com-links)
+- [Aula 16 - Entendendo URLs Absolutas e Relativas](#aula-16---entendendo-urls-absolutas-e-relativas)
+- [Aula 17 - Links dentro de uma mesma página](#aula-17---links-dentro-de-uma-mesma-página)
+- [Aula 18 - Links Externos](#aula-18---links-externos)
+- [Aula 19 - Exercício 2: Criando um site com navegação](#aula-19---exercício-2-criando-um-site-com-navegação)
+- [Aula 20 - Resolução do Exercício 2](#aula-20---resolução-do-exercício-2)
+- [Aula 21 - Listas no HTML: ordenadas e não-ordenadas](#aula-21---listas-no-html-ordenadas-e-não-ordenadas)
+- [Aula 22 - Quiz 2](#aula-22---quiz-2)
+- [Aula 23 - Exercício 3: Lista de Álbuns](#aula-23---exercício-3-lista-de-álbuns)
+- [Aula 24 - Resolução do Exercício 3](#aula-24---resolução-do-exercício-3)
+- [Aula 25 - Criação de tabelas](#aula-25---criação-de-tabelas)
+- [Aula 26 - Exercício 4: Tabela de Inscritos](#aula-26---exercício-4-tabela-de-inscritos)
+- [Aula 27 - Resolução do Exercício 4](#aula-27---resolução-do-exercício-4)
+- [Aula 28 - O que são formulários](#aula-28---o-que-são-formulários)
+- [Aula 29 - Conhecendo os Tipos de Input](#aula-29---conhecendo-os-tipos-de-input)
+- [Aula 30 - Elementos select e textarea](#aula-30---elementos-select-e-textarea)
+- [Aula 31 - Exercício 5: Formulário de Inscrição](#aula-31---exercício-5-formulário-de-inscrição)
+- [Aula 32 - Resolução do Exercício 5](#aula-32---resolução-do-exercício-5)
+- [Aula 33 - Recursos modernos no HTML5](#aula-33---recursos-modernos-no-html5)
+- [Aula 34 - Elementos Semânticos](#aula-34---elementos-semânticos)
+- [Aula 35 - WAI-ARIA e Atributos de Acessibilidade](#aula-35---wai-aria-e-atributos-de-acessibilidade)
+- [Aula 36 - Quiz 3](#aula-36---quiz-3)
+- [Aula 37 - Exercício Final: Criando um Site](#aula-37---exercício-final-criando-um-site)
+- [Aula 38 - Resolução do Exercício Final](#aula-38---resolução-do-exercício-final)
+- [Aula 39 - Encerramento](#aula-39---encerramento)
+- [Aula 40 - Prova Final com Certificado](#aula-40---prova-final-com-certificado)
 
 ----
 
 ## Aula 01 - Introdução ao Módulo
 
-
+### ❗ **Nenhuma anotação** ❗
 
 ## Aula 02 - O que é HTML e como usá-lo
 
@@ -148,19 +145,19 @@
 * Para escrever em **negrito**, usamos a tag `<b>` **(bold)**
 
 ```html
-    Uso em <b>negrito</b>
+Uso em <b>negrito</b>
 ```
 
 * Para escrever em *itálico*, usamos a tag `<i>` **(italic)**
 
 ```html
-    Uso em <i>itálico</i>
+Uso em <i>itálico</i>
 ```
 
 * Também é possível usar os dois tipos de formatação em um texto só
 
 ```html
-    Uso em <b><i>ambos</i></b>
+Uso em <b><i>ambos</i></b>
 ```
 
 **Importante:**
@@ -183,14 +180,14 @@
 
 ## Aula 08 - Quiz 1
 
-
+### ❗ **Quiz realizado na plataforma** ❗
 
 ## Aula 09 - Elementos de Imagem e Atributos
 
 * Para colocar uma **imagem** na página **HTML**, usa-se aa tag `<img>`
 
 ```html
-  <img src="./imagens/exemplo.png">
+<img src="./imagens/exemplo.png">
 ```
 
 ✴️  **"src"** ➜ source / fonte
@@ -200,7 +197,7 @@
 **Existem também alguns outros atributos que podem ser atribuídos na tag `<img>`:**
 
 ```html
-  <img src="./imagens/exemplo.png" loading="lazy" alt="Descrição da Imagem" width="400" height="400">
+<img src="./imagens/exemplo.png" loading="lazy" alt="Descrição da Imagem" width="400" height="400">
 ```
 
 ✴️ **src** ➜ **Necessário**, arquivo da imagem (URL / Path).
@@ -240,11 +237,11 @@
 
 ## Aula 11 - Exercício 1: Escrevendo um artigo
 
-
+### ❗ [**Exercício Resolvido**](../HTML5/Exercicios/Exercicio-01/Minha-Resolucao/) ❗ 
 
 ## Aula 12 - Resolução do Exercício 1
 
-
+### ❗ [**Resolução**](../HTML5/Exercicios/Exercicio-01/Resolucao-do-Exercicio/) ❗
 
 ## Aula 13 - Quebras de Linha e Régua Horizontal
 
@@ -265,7 +262,7 @@
 * Para criar um **link**, é usado a tag `<a>`, que é uma tag **âncora**.
 
 ```html
-  <a href="./index.html">Página Principal</a>
+<a href="./index.html">Página Principal</a>
 ```
 
 ✴️  **"href"** ➜ É a **URL** para onde o hyperlink direciona
@@ -276,11 +273,11 @@
 * **"Raiz"** ou **"Diretório Raiz"** o caminho inicial do site. A **raiz** é a página onde caímos quando não especificamos nenhum caminho **URL**, apenas o **endereço base**.
 
 ```html
-  <p> Navegue entre as guias
+<p> Navegue entre as guias
     <a href="./index.html">Página Principal</a>
     <a href="./guia1.html">Guia 1</a>
     <a href="./guia2.html">Guia 2</a>
-  </p>
+</p>
 ```
 
 ✴️  **"./index.html"** ➜ Endereço base, "nome do arquivo"
@@ -328,19 +325,18 @@
 * Ao definir o caminho do link, utilizar **"#"** seguido do **"id"** do elemento.
 
 ```html
-  <div>
+<div>
     <p>Navegue entre as seções dessa página:</p>
     <a href="#titulo-1">Título 1</a>
     <a href="#titulo-2">Título 2</a>
-  </div>
+</div>
 
-  <div>
-    <h2 id="titulo-1">Título 1</h2>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-
-    <h2 id="titulo-2">Título 2</h2>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-  </div>
+<div>
+	<h2 id="titulo-1">Título 1</h2>
+	<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>	
+	<h2 id="titulo-2">Título 2</h2>
+	<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+</div>
 ```
 
 ## Aula 18 - Links Externos
@@ -357,13 +353,13 @@
 * A tag `<target>` é usada para especificar onde o documento vinculado será aberto.
 
 ```html
-  <a href="https://google.com" target="_self">Google</a>
+<a href="https://google.com" target="_self">Google</a>
 
-  <a href="https://google.com" target="_blank">Google</a>
+<a href="https://google.com" target="_blank">Google</a>
 
-  <a href="https://google.com" target="_parent">Google</a>
+<a href="https://google.com" target="_parent">Google</a>
 
-  <a href="https://google.com" target="_top">Google</a>
+<a href="https://google.com" target="_top">Google</a>
 ```
 
 ✴️ `target="_self"` padrão ➜ Abre o link na **mesma página** onde foi clicado.
@@ -376,11 +372,11 @@
 
 ## Aula 19 - Exercício 2: Criando um site com navegação
 
-
+### ❗ [**Exercício Resolvido**](../HTML5/Exercicios/Exercicio-02/Minha-Resolucao/) ❗
 
 ## Aula 20 - Resolução do Exercício 2
 
-
+### ❗ [**Resolução**](../HTML5/Exercicios/Exercicio-02/Resolucao-do-Exercicio/) ❗
 
 ## Aula 21 - Listas no HTML: ordenadas e não-ordenadas
 
@@ -389,21 +385,21 @@
 **Lista Ordenada**
 
 ```html
-  <ol>
-    <li>item 1</li>
-    <li>item 2</li>
-    <li>item 3</li>
-  </ol>
+<ol>
+	<li>item 1</li>
+	<li>item 2</li>
+	<li>item 3</li>
+</ol>
 ```
 
 **Lista Não-Ordenada**
 
 ```html
-  <ul>
-    <li>item 1</li>
-    <li>item 2</li>
-    <li>item 3</li>
-  </ul>
+<ul>
+	<li>item 1</li>
+	<li>item 2</li>
+	<li>item 3</li>
+</ul>
 ```
 
 ✴️ `Lista Ordenada` ou `Ordered List` ➜ É um ista organizada de forma numérica. É representada pela tag `<ol>`.
@@ -418,70 +414,70 @@
 
 ## Aula 22 - Quiz 2
 
-
+### ❗ **Quiz realizado na plataforma** ❗
 
 ## Aula 23 - Exercício 3: Lista de Álbuns
 
-
+### ❗ [**Exercício Resolvido**](../HTML5/Exercicios/Exercicio-03/Minha-Resolucao/) ❗
 
 ## Aula 24 - Resolução do Exercício 3
 
-
+### ❗ [**Resolução**](../HTML5/Exercicios/Exercicio-03/Resolucao-do-Exercicio/) ❗
 
 ## Aula 25 - Criação de tabelas
 
 * As tabelas permitem organizar dados em linhas e colunas.
-* Para criar uma tabela, usamos a tag `<table>`
+* Para criar uma tabela, usamos a tag `<table>`.
 * Dentro da tabela, para criar uma **linha nova** é usada a tag `<tr>` **(table row)** e para criar **novas células / dados** é usado `<td>` **(table data)**.
 * Para definir uma **célula header** para a tabela é usado `<th>` **(table header)**.
 * Para definir um **head** para a tabela é usado `<thead>` **(table head)**.
 * Para definir um **body** para a tabela é usado `<tbody>` **(table body)**.
 
 ```html
-  <table>
+<table>
     <thead>
-      <tr>
-        <td>Coluna 1</td>
-        <td>Coluna 2</td>
-        <td>Coluna 3</td>
-      </tr>
+      	<tr>
+        	<td>Coluna 1</td>
+        	<td>Coluna 2</td>
+        	<td>Coluna 3</td>
+      	</tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Dado 1</td>
-        <td>Dado 2</td>
-        <td>Dado 3</td>
-      </tr>
+      	<tr>
+        	<td>Dado 1</td>
+        	<td>Dado 2</td>
+        	<td>Dado 3</td>
+      	</tr>
     </tbody>
-  </table>
+</table>
 ```
 
 * É possível usar os atributos **"colspan"** e **"rowspan"** para manipular quantas células ou colunas a tag irá ocupar.
 
 ```html
-  <table>
+<table>
     <thead>
-      <tr>
-        <td colspan="2">Informações Pessoais</td>
-        <td>Telefone</td>
-      </tr>
+      	<tr>
+        	<td colspan="2">Informações Pessoais</td>
+        	<td>Telefone</td>
+      	</tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Dado 1</td>
-        <td rowspan="2">(21) 91234-5678</td>
-      </tr>
+      	<tr>
+        	<td>Dado 1</td>
+        	<td rowspan="2">(21) 91234-5678</td>
+      	</tr>
     </tbody>
-  </table>
+</table>
 ```
 
 ## Aula 26 - Exercício 4: Tabela de Inscritos
 
-
+### ❗ [**Exercício Resolvido**](../HTML5/Exercicios/Exercicio-04/Minha-Resolucao/) ❗
 
 ## Aula 27 - Resolução do Exercício 4
 
-
+### ❗ [**Resolução**](../HTML5/Exercicios/Exercicio-04/Resolucao-do-Exercicio/) ❗
 
 ## Aula 28 - O que são formulários
 
@@ -496,11 +492,11 @@
 ✴️ Um **botão** para o formulário.
 
 ```html
-  <form action="https://google.com/search" method="get">
+<form action="https://google.com/search" method="get">
     <label for="pesquisar">Pesquise o nome no google</label>
     <input type="text" name="q" id="pesquisar">
     <button tupe="submit">Pesquisar</button>
-  </form>  
+</form>  
 ```
 
 ✴️ `action=" "` ➜ Ação na qual queremos realizar.
@@ -516,10 +512,10 @@
 * Para fazer com que um campo seja obrigatório, é só inserir a instrução **"required"**.
 
 ```html
-  <form>
+<form>
     <label for="nome">Nome:</label>
     <input type="text" id="nome" name="nome" required>
-  </form>
+</form>
 ```
 
 ## Aula 29 - Conhecendo os Tipos de Input
@@ -549,19 +545,19 @@
 ✴️ `<textarea>` ➜ Elemento que permite a **inserção** de um texto em múltiplas linhas.
 
 ```html
-  <form>
+<form>
     <label for="opcao">Escolha:</label>
     <select name="opcao" id="opcao">
-      <option value="opcao-1" selected disabled>Opção 1</option>
-      <option value="opcao-2">Opção 2</option>
-      <option value="opcao-3">Opção 3</option>
+      	<option value="opcao-1" selected disabled>Opção 1</option>
+     	<option value="opcao-2">Opção 2</option>
+      	<option value="opcao-3">Opção 3</option>
     </select>
 
     <label for="sobre">Sobre mim:</label>
     <textarea name="sobre" id="sobre" cols="40" rows="6" placeholder="Escreva sobre você"></textarea>
 
     <button type="submit">Enviar</button>
-  </form>
+</form>
 ```
 
 ✴️ `<option>` ➜ Define as opções.
@@ -580,11 +576,11 @@
 
 ## Aula 31 - Exercício 5: Formulário de Inscrição
 
-
+### ❗ [**Exercício Resolvido**](../HTML5/Exercicios/Exercicio-05/Minha-Resolucao/) ❗
 
 ## Aula 32 - Resolução do Exercício 5
 
-
+### ❗ [**Resolução**](../HTML5/Exercicios/Exercicio-05/Resolucao-do-Exercicio/) ❗
 
 ## Aula 33 - Recursos modernos no HTML5
 
@@ -656,10 +652,10 @@
 **Exemplo:**
 
 ```html
-  <div role="alert" aria-labelledby="infoHeading" aria-describedby="infoContent">
+<div role="alert" aria-labelledby="infoHeading" aria-describedby="infoContent">
     <h2 id="infoHeading">Informação Importante</h2>
     <p id="infoContent">Esta é uma mensagem informativa para os usuários.</p>
-  </div>
+</div>
 ```
 
 ✴️ `role=" "` ➜ Define o propósito ou valor semântico de um elemento na interface de usuário. O uso de `role` ajuda a tornar componentes interativos e elementos personalizados acessíveis para pessoas com deficiência.
@@ -680,18 +676,18 @@
 
 ## Aula 36 - Quiz 3
 
-
+### ❗ **Quiz realizado na plataforma** ❗
 
 ## Aula 37 - Exercício Final: Criando um Site
 
-
+### ❗ [**Exercício Resolvido**](../HTML5/Exercicio-Final/Minha-Resolucao/) ❗
 
 ## Aula 38 - Resolução do Exercício Final
 
-
+### ❗ [**Resolução**](../HTML5/Exercicio-Final/Resolucao-do-Exercicio/) ❗
 
 ## Aula 39 - Encerramento
 
-
+### ❗ **Nenhuma anotação** ❗
 
 ## Aula 40 - Prova Final com Certificado
