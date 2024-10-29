@@ -35,11 +35,71 @@
 
 ## Aula 01 - Introdução ao Módulo
 
-
+❗ Nenhuma anotação ❗
 
 ## Aula 02 - O que é CSS e como usá-lo
 
+* **CSS** significa ***Cascading Style Sheets***, ou ***Folhas de Estilo em Cascata***.
 
+* Linguagem usada para definir os estilos de um documento **HTML**.
+
+* Ela ser uma linguagem de **folhas de estilo em cascata**, significa que as estilizações são feitas em cascatas, ou seja, são lidas de cima pra baixo, sendo assim, uma estilização sobrepõe a outra.
+
+```css
+h1 {
+    color: black;
+    color: red;
+}
+```
+
+✴️ A cor que vai prevalecer é a vermelha, pois é o estilo que vem depois, ou seja, sobrepõe o estilo anterior.
+
+* O **CSS** pode ser incluído de **três formas diferentes**:
+
+
+**Com o atributo style**
+```html
+<h1 style="color: red;">Título Vermelho</h1>
+```
+
+**Com a tag style**
+
+```html
+<head>
+    <style>h1 {color: red;}</style>
+</head>
+```
+
+**Com a tag apontando para um arquivo CSS**
+
+```html
+<link rel="stylesheet" href="style.css">
+```
+
+➡️ A forma mais correta de se usar é **usar uma tag apontando para um arquivo css**, pois é uma maneira de manter seu código organizado, visto que normalmente são escritas muitas linhas de código.
+
+### Estrutura de um código CSS
+
+```css
+h1 {
+    color: red;
+}
+```
+
+✴️ `h1` ➜ É o **seletor**, ou seja, o termo que seleciona qual parte do documento terá esse estilo.
+
+✴️ `{ }` ➜ Delimitam o **bloco de declarações**, ou seja, onde começam e terminam os estilos a serem aplicados no(s) elemento(s) selecionado(s).
+
+✴️ `color: red;` ➜ Define um estilo. Declarações são sempre compostas por duas partes, a **propriedade** e o **valor**, separadas por vírgula, e finalizadas por ponto e vírgula.
+
+**Exemplo:**
+
+```css
+seletor {
+    propriedade: valor;
+    outra-propriedade: valor;
+}
+```
 
 ## Aula 03 - Seu primeiro código CSS
 

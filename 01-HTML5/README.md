@@ -52,7 +52,7 @@
 
 ➡️ O que é HTML?
 
-* **HTML** significa HyperText Markup Language, ou Linguagem de Marcação de HiperTexto.
+* **HTML** significa ***HyperText Markup Language***, ou ***Linguagem de Marcação de HiperTexto***.
 
 * É uma linguagem usada para criar uma estrutura de elementos e suas informações , mais precisamente, os elementos de uma página web.
 
