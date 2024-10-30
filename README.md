@@ -4,6 +4,6 @@ Anotações, exemplos e exercícios feitos durante o **Curso Full Stack JavaScri
 
 # 📚 Tecnologias Abordadas #
 
-### 📂 [HTML](./HTML5/) ###
-### 📂 [CSS](./CSS3/) ###
+### 📂 [HTML](./01-HTML5/) ###
+### 📂 [CSS](./02-CSS3/) ###
 ### 📂 [Git e GitHub](./Git-e-GitHub/) ###
