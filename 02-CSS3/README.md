@@ -448,11 +448,21 @@ input[name="email"]{
 
 ## Aula 12 - Exercício 2 
 
-### ❗ [**Exercício Resolvido**](../) ❗
+### ❗ [**Exercício Resolvido**](../02-CSS3/Exercicios/Exercicio-02/Minha-Resolucao/) ❗
 
 ## Aula 13 - Resolução do Exercício 2
 
-### ❗ [**Resolução**](../) ❗
+### ❗ [**Resolução**](../02-CSS3/Exercicios/Exercicio-02/Resolucao-do-Exercicio/) ❗
+
+✴️ `cursor` ➜ Especifica o cursor do mouse mostrado quando o ponteiro do mouse está sobre um elemento.
+
+```css
+div {
+    cursor: pointer;
+}
+```
+
+✴️ `display: none` ➜ Desativa a exibição de um elemento para que não tenha efeito no layout (o documento é renderizado como se o elemento não existisse).
 
 ## Aula 14 - Textos e Fontes
 
