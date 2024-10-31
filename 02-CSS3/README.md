@@ -138,20 +138,6 @@ seletor {
 
 * Ao criar o arquivo **CSS**, normalmente usamos **style.css** como nome padrão para a folha de estilos principal, pois é um nome descritivo e direto, amplamente reconhecido e adotado na organização de projetos web. Esse nome facilita a identificação do conteúdo do arquivo, indicando claramente que ele define os estilos do site, e segue uma convenção popular tanto entre desenvolvedores quanto em sistemas de gerenciamento de conteúdo.
 
-### style.css
-```css
-p {
-    color: white;
-    font-size: 10px;
-}
-```
-
-✴️ `background-color: ` ➜ Define a **cor** de fundo.
-
-✴️ `color: ` ➜ Define a **cor** da fonte.
-
-✴️ `font-size: ` ➜ Define o **tamanho** da fonte.
-
 ## Aula 04 - DevTools para CSS
 
 * Para abrir o DevTools, basta clicar com o botão direito do mouse dentro da página web desejada e clicar em **"inspecionar"**.
@@ -205,39 +191,268 @@ h1 {
 
 **Dica:** Use uma ferramenta de **seletor de cores** ou ***color picker***.
 
-
-
 ## Aula 06 - Background e Border
 
+✴️ `background-color: ` ➜ Define a **cor** de fundo.
 
+```css
+body {
+    background-color: rgb(255, 0, 0);
+    background-color: #1e1e1e;
+    background-color: hsl(0, 100, 50);
+}
+```
+
+✴️ `background-image: ` ➜ Define a **imagem** de fundo.
+
+✴️ `background-size: ` ➜ Define o tamanho da imagem de fundo.
+
+✴️ `background-repeat: ` ➜ Define como uma imagem de fundo é repetida dentro de um elemento.
+
+* Existem 3 tamanhos padrões e mais comuns além de poder definir um tamanho específico:
+    * `auto` ➜ Mantém o tamanho original da imagem. A imagem não será redimensionada automaticamente para se ajustar ao elemento e repetirá. 
+    * `contain` ➜ Redimensiona a imagem para que ela fique completamente visível dentro do elemento, mantendo sua proporção. A imagem será ajustada até que uma de suas dimensões (largura ou altura) caiba no elemento.
+    * `cover` ➜ Redimensiona a imagem de fundo para cobrir completamente o elemento, mantendo sua proporção original. A imagem pode ser cortada para se ajustar às dimensões do elemento.
+
+```css
+body {
+    background-image: url(https://exemplo.com/imagem.png);
+    background-size: cover;
+    background-repeat: repeat-y;
+}
+```
+
+✴️ `border-width: ` ➜ Define a **largura** da borda de todos os **quatro lados**.
+
+✴️ `border-color: ` ➜ Define a **cor** da borda.
+
+✴️ `border-style: ` ➜ Define o **estilo** da borda.
+
+
+```css
+div {
+    border-width: 4px;
+    border-color: #1c1a1d;
+    border-style: solid;
+}
+```
+
+✴️ `border: ` ➜ Define a largura, o estilo e a cor da borda ao mesmo tempo.
+
+```css
+div {
+    border: 4px solid #1e1e1e;
+}
+```
+
+✴️ `height: ` ➜ Define a **altura** do elemento.
+
+✴️ `width: ` ➜ Define a **largura** do elemento.
+
+```css
+div {
+    background-color: #ffffff;
+    border: 4px solid #1e1e1e;
+    height: 64px; 
+    width: 320px;
+} 
+```
+
+✴️ `background-image: gradient` ➜ `Gradient` é um elemento que vai de uma cor para outra gradualmente. Existem vários tipos de gradiente. 
+
+✴️ `border-top: ` ➜ Define o estilo da borda de cima.
+
+```css
+div {
+    background-image: linear-gradient(45deg, #2c2c2d, #f64348);
+    border-top: 4px dotted #1c1a1d;
+    height: 64px;
+    width: 320px;
+}
+```
+    
+✴️ `border-radius: ` ➜ Define o arredontamento das bordas.
+* Caso queira definir um lado específico, basta especificar: **ex: border-top-right-radius**.
+
+```css
+div{
+    background-color: #0077ff;
+    border: 2px solid #1c1a1d;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    height: 64px;
+    width: 320px;
+}
+```
 
 ## Aula 07 - Exercício 1
 
-
+### ❗ [**Exercício Resolvido**](../02-CSS3/Exercicios/Exercicio-01/Minha-Resolucao/) ❗
 
 ## Aula 08 - Resolução do Exercício 1
 
-
+### ❗ [**Resolução**](../02-CSS3/Exercicios/Exercicio-01/Resolucao-do-Exercicio/) ❗
 
 ## Aula 09 - Box Model: margin e padding
 
+* Em **HTML** é possível definir uma **classe** para um elemento.
+    * `class` é uma lista das classes de um elemento, separada por espaços. Classes permitem a CSS e Javascript selecionar e acessar elementos específicos através dos seletores de classe.
+  
+```html
+<div class="exemplo">
+	<p>Exemplo</p>
+</div>
+```
 
+* Para aplicar um estilo em uma classe de um determinado elemento, no **CSS** colocamos um ponto antes da classe.
+
+```css
+/* class = "exemplo" */
+.exemplo {
+	color: #pink;
+}
+``` 
+
+![box-model](./media/box-model.png)
+
+✳ **Margin** ➜ Espaço externo ao redor do elemento, separando-o dos outros elementos. Controla a distância entre o elemento e seus vizinhos.   
+
+✴️ `margin-top: ` ➜ Define a margem de **cima**.
+
+✴️ `margin-bottom: ` ➜ Define a margem de **baixo**. 
+
+✴️ `margin-left: ` ➜ Define a margem da **esquerda**.
+
+✴️ `margin-right: ` ➜ Define a margem da **direita**.
+
+✳ **Padding** ➜ Espaço interno entre o conteúdo do elemento e sua borda. Aumenta a "área respirável" dentro do elemento, sem alterar a borda externa.
+
+✴️ `padding-top: ` ➜ Define o padding de **cima**.
+
+✴️ `padding-bottom: ` ➜ Define o padding de **baixo**. 
+
+✴️ `padding-left: ` ➜ Define o padding da **esquerda**.
+
+✴️ `padding-right: ` ➜ Define o padding da **direita**.
+
+```css
+.box {
+	/* margem */
+    margin-top: 30px;
+    margin-right: 40px;
+    margin-bottom: 30px;
+    margin-left: 40px;
+
+	/* preenchimento */
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+}
+```
 
 ## Aula 10 - Display: none, inline, block e inline-b
 
+* A tag `<span>` no **HTML** é um **elemento inline** usado para aplicar estilos ou scripts a um trecho específico de texto ou conteúdo dentro de outra tag. Diferente de `<div>`, que é um elemento em bloco, `<span>` não quebra a linha, sendo ideal para destacar palavras ou frases.
 
+* A propriedade `display` no **CSS** controla como um elemento é renderizado na página e influencia o seu comportamento em relação ao layout. Alguns exemplos são:
+
+✴️ `display: inline` ➜ Exibe o elemento na mesma linha, ocupando apenas o espaço necessário para o conteúdo, sem quebrar a linha. Apenas aceita margem e preenchimento horizontal.
+
+✴️ `display: block` ➜  Exibe o elemento como um bloco, ocupando toda a largura disponível e iniciando uma nova linha. Aceita margem e preenchimento vertical.
+
+✴️ `display: inline-block` ➜ Combina características de **inline** e **block**: permite definir **width** e **height**, mas ainda mantém o conteúdo na mesma linha, não quebra linha.
+
+```css
+.div-01 {
+	display: inline;
+}
+
+.div-02 {
+	display: block;
+}
+
+.div-03 {
+	display: inline-block;
+}
+```
 
 ## Aula 11 - Seletores Básicos
 
+* É possível aplicar estilos em dois seletores ao mesmo tempo, basta declarar usando vírgula:
 
+```css
+header, body {
+	color: blue;
+}
+```
+
+**Seletores de Elementos Aninhados:**
+
+✴️ `Espaço ( )` ➜ Seleciona todos os elementos descendentes de um elemento pai específico, independentemente do nível de aninhamento.
+
+```css
+div p {
+  color: blue;
+}
+```
+
+* Nesse exemplo, todos os `<p>` dentro de um `<div>` terão o texto em azul, independentemente de quantos níveis internos estejam.
+
+✴️ `Maior (>)` ➜ Seleciona apenas os filhos diretos de um elemento pai.
+
+```css
+div > p {
+  color: green;
+}
+```
+
+* Nesse exemplo, apenas os `<p>` que são filhos diretos de um `<div>` ficarão verdes. Elementos `<p>` mais internos não serão afetados.
+
+✴️ `Símbolo de Til (~)` ➜ Seleciona todos os elementos irmãos que aparecem após um elemento específico.
+
+```css
+h2 ~ p {
+  font-weight: bold;
+}
+```
+
+* Neste exemplo, todos os `<p>` que estiverem no mesmo nível (irmãos) e aparecerem após um `<h2>` serão exibidos em negrito.
+
+✴️ `Símbolo de Mais (+)` ➜ Seleciona apenas o próximo elemento irmão imediato.
+
+```css
+h2 + p {
+  color: red;
+}
+```
+
+Nesse exemplo, apenas o primeiro `<p>` que segue imediatamente após um `<h2>` ficará vermelho.
+
+✴️ Para estilizar um **id**, basta colocar um `#` antes do **id**.
+
+```css
+/* id = "exemplo" */
+#exemplo {
+	color: green;
+}
+```
+
+✴️ `Propriedade` ➜ Permite aplicar estilos a elementos **HTML** que possuem um determinado atributo ou uma combinação de atributos, sem a necessidade de classes ou IDs. 
+
+```css
+input[name="email"]{
+	background-color: orange;
+}
+```
 
 ## Aula 12 - Exercício 2 
 
-
+### ❗ [**Exercício Resolvido**](../) ❗
 
 ## Aula 13 - Resolução do Exercício 2
 
-
+### ❗ [**Resolução**](../) ❗
 
 ## Aula 14 - Textos e Fontes
 
