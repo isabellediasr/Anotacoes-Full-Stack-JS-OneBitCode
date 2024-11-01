@@ -466,9 +466,111 @@ div {
 
 ## Aula 14 - Textos e Fontes
 
+✴️ `text-align: ` ➜ Define o alinhamento horizontal do conteúdo de texto dentro de um elemento.
 
+| **Valor** | **Descrição** | **Exemplo** |
+| :---: | :---: | :---: |
+| **`left`** | Alinha o texto à esquerda. | `text-align: left;` |
+| **`right`** | Alinha o texto à direita. | `text-align: right;` |
+| **`center`** | Centraliza o texto. | `text-align: center;` |
+| **`justify`** | Alinha o texto nas margens esquerda e direita, ajustando o espaçamento. | `text-align: justify;` |
+| **`start`** | Alinha o texto no início, dependendo do idioma. | `text-align: start;` |
+| **`end`** | Alinha o texto no final, dependendo do idioma. | `text-align: end;` |
+| **`inherit`** | Herdar o valor de `text-align` do elemento pai. | `text-align: inherit;` |
+| **`initial`** | Define o `text-align` para o valor padrão do navegador (geralmente left). | `text-align: initial;` |
+| **`unset`** | Remove qualquer valor específico, voltando ao padrão (inherit ou initial, conforme o contexto). | `text-align: unset;` |
+| **`match-parent`**| Define o mesmo alinhamento que o elemento pai, considerando também a direção (direction) do texto.  | `text-align: match-parent;` |
+
+
+✴️ `text-decoration` ➜ É usada para adicionar efeitos visuais ao texto, como sublinhados, riscos e sobrescritos. Essa propriedade é útil para destacar texto, indicar links, ou aplicar decorações específicas para realçar informações.
+
+| **Valor** | **Tipo** | **Descrição** | **Exemplo** |
+| :---: | :---: | :---: | :---: |
+| **`none`** | `text-decoration-line`  | Remove todas as decorações aplicadas ao texto. | `text-decoration: none;` |
+| **`underline`**   | `text-decoration-line`  | Adiciona uma linha abaixo do texto (muito usado para links). | `text-decoration: underline;` |
+| **`overline`**    | `text-decoration-line`  | Adiciona uma linha acima do texto. | `text-decoration: overline;` |
+| **`line-through`**| `text-decoration-line`  | Adiciona uma linha no meio do texto, indicando texto descontinuado ou desativado. | `text-decoration: line-through;` |
+| **`solid`**       | `text-decoration-style` | Cria uma linha contínua para a decoração (padrão). | `text-decoration: solid;` |
+| **`dashed`** | `text-decoration-style` | Cria uma linha tracejada. | `text-decoration: dashed;` |
+| **`dotted`** | `text-decoration-style` | Cria uma linha pontilhada. | `text-decoration: dotted;` |
+| **`double`** | `text-decoration-style` | Cria uma linha dupla abaixo ou acima do texto. | `text-decoration: double;` |
+| **`wavy`** | `text-decoration-style` | Cria uma linha ondulada para a decoração. | `text-decoration: wavy;` |
+
+✴️ `text-transform: ` ➜ Controla a capitalização do texto, permitindo aplicar transformações para que o texto apareça em maiúsculas, minúsculas, ou com cada palavra iniciando com maiúscula, entre outras.
+
+| **Valor** | **Descrição** | **Exemplo** |
+| :---: | :---: | :---: |
+| **`none`** | Nenhuma transformação é aplicada. O texto aparece como foi inserido originalmente. | `text-transform: none;` |
+| **`capitalize`** | Transforma a primeira letra de cada palavra em maiúscula, ideal para títulos ou cabeçalhos. | `text-transform: capitalize;` |
+| **`uppercase`**  | Transforma todas as letras em maiúsculas. | `text-transform: uppercase;` |
+| **`lowercase`**  | Transforma todas as letras em minúsculas. | `text-transform: lowercase;` |
+
+* Existem várias propriedades relacionadas a fonte.
+
+| **Propriedade** | **Descrição** | **Exemplo** |
+| :---: | :---: | :---: |
+| `font-family` | Define a família da fonte a ser utilizada. | `font-family: 'Arial', sans-serif;` |
+| `font-size` | Define o tamanho da fonte (em pixels, em, rem, %). | `font-size: 16px;` |
+| `font-weight` | Define a espessura da fonte (normal, bold, ou numérica). | `font-weight: bold;` |
+| `font-style` | Define o estilo da fonte (normal, italic, oblique). | `font-style: italic;` |
+| `font-variant` | Define se o texto deve ser exibido em estilo alternativo (small-caps). | `font-variant: small-caps;` |
+| `line-height` | Define a altura da linha (espaço vertical entre linhas de texto). | `line-height: 1.5;` |
+| `letter-spacing` | Controla o espaço entre caracteres. | `letter-spacing: 1px;` |
+
+➡️ Na propriedade `font-family` define a fonte a ser usada em um elemento de texto, permitindo especificar uma sequência de fontes como alternativas (fallbacks). Caso a primeira fonte não esteja disponível, o navegador tentará a próxima na lista, garantindo uma exibição consistente.
+
+➡️ **Tipos de `font-weight`:** 
+
+| **Valor** | **Descrição** | **Exemplo** |
+:---: | :---: | :---: |
+| **`normal`** | Peso padrão da fonte, geralmente equivalente a `400`. | `font-weight: normal;` |
+| **`bold`** | Aplica negrito à fonte, geralmente equivalente a `700`. | `font-weight: bold;` |
+| **`bolder`** | Define um peso mais pesado que o peso herdado do elemento pai. | `font-weight: bolder;` |
+| **`lighter`** | Define um peso mais leve que o peso herdado do elemento pai. | `font-weight: lighter;` |
+| **`100`** | Peso extra leve (thin). | `font-weight: 100;` |
+| **`200`** | Peso muito leve (extra-light). | `font-weight: 200;` |
+| **`300`** | Peso leve (light). | `font-weight: 300;` |
+| **`400`** | Peso normal ou padrão (regular). | `font-weight: 400;` |
+| **`500`** | Peso médio (medium). | `font-weight: 500;` |
+| **`600`** | Peso semi-negrito (semi-bold). | `font-weight: 600;` |
+| **`700`** | Peso negrito (bold). | `font-weight: 700;` |
+| **`800`** | Peso extra negrito (extra-bold). | `font-weight: 800;` |
+| **`900`** | Peso super negrito (black). | `font-weight: 900;` |
 
 ## Aula 15 - Usando o Google Fonts
+
+* A inclusão da fonte no arquivo **HTML** ou **CSS** evita o problema de fallback.
+
+* Para pegar o link de uma **fonte** no **google fonts**, é só seguir os seguintes passos:
+
+**1º -** Buscar a fonte desejada no site 
+
+**2º -** Clicar em **"get font"**
+
+**3º -** Clicar em **"get embed code"**
+
+**4º -** Escolher `<link>` **(HTML)** ou `@import` **(CSS)**
+
+**5º -** Copiar o código e colocar no arquivo. Caso escolha **HTML**, coloque o código no `<head>` do arquivo, caso escolha **CSS**, coloque no topo do arquivo sem as tags `<style>`.
+
+### ⚠ [Google Fonts](https://fonts.google.com) ⚠
+
+**CSS**
+```css
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    /* Exemplo de como incluir a fonte */
+    font-family: "Montserrat", serif;
+}
+```
+
+**HTML**
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+```
 
 
 
