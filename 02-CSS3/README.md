@@ -572,11 +572,65 @@ body {
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 ```
 
-
-
 ## Aula 16 - Unidades de Medida
 
+| **Unidade** | **Descrição**  | **Exemplo de Uso** | **Por que é usada** |
+| :---: | :---: | :---: | :---: |
+| **px** | **Pixels**. Unidade **fix**a e **absoluta**, onde cada `px` representa um pixel físico na tela. | `font-size: 16px;` | Oferece controle exato do tamanho, ideal para elementos que não precisam ser responsivos, como ícones. |
+| **em** | Unidade relativa ao `font-size` do elemento pai. Muito usada para tamanhos e espaçamentos que dependem do tamanho da fonte. | `padding: 1.5em;` | Proporciona flexibilidade ao se adaptar ao tamanho de fonte do pai, útil para design responsivo. |
+| **rem** | **Root Element**. Unidade relativa ao `font-size` do elemento raiz (`<html>`), oferecendo consistência ao longo de toda a página. | `margin: 2rem;` | Fornece a flexibilidade do `em`, mas mantém consistência globalmente, independente da estrutura de elementos. |
+| **%** | **Porcentagem**. Define o tamanho em relação ao elemento pai, ajustando-se dinamicamente. | `width: 50%;` | Cria layouts fluidos e responsivos ao se adaptar ao tamanho do elemento pai. |
+| **vh** | **Viewport Height**. 1vh é igual a 1% da altura da viewport (área visível da janela do navegador). | `height: 100vh;` | Ideal para layouts de tela cheia que precisam se ajustar à altura da janela, como seções de página inteira. |
+| **vw** | **Viewport Width**. 1vw é igual a 1% da largura da viewport. | `width: 100vw;` | Permite que a largura do elemento ocupe toda a viewport, ótimo para designs que precisam ser totalmente fluidos. |
+| **vmin** | **Viewport Minimum**. 1vmin é igual a 1% da menor dimensão da viewport (altura ou largura, a menor delas). | `font-size: 2vmin;` | Ajuda a manter proporções dinâmicas e consistentes em dispositivos de várias dimensões. |
+| **vmax** | **Viewport Maximum**. 1vmax é igual a 1% da maior dimensão da viewport (altura ou largura, a maior delas). | `width: 100vmax;` | Garante que o layout aproveite sempre a dimensão maior da tela, mantendo um design responsivo e proporcional. |
+| **svh** | **Small Viewport Height**. 1svh é igual a 1% da altura mínima da viewport em dispositivos móveis. | `height: 100svh;` | Adequado para layouts que precisam se adaptar ao tamanho mínimo da tela, mesmo com a presença de barras móveis.|
+| **lvh** | **Large Viewport Height**. 1lvh é igual a 1% da altura máxima da viewport (altura total incluindo barras de navegação). | `height: 100lvh;` | Útil para páginas que precisam preencher a tela completa, respeitando a altura máxima disponível. |
+| **dvh** | **Dynamic Viewport Height**. 1dvh ajusta o tamanho dinamicamente conforme a altura visível da tela (incluindo a barra de rolagem móvel). | `height: 100dvh;` | Usada para garantir que o layout responda a mudanças dinâmicas, especialmente em dispositivos móveis. |
 
+➡️ Como a unidade de medida `rem` é relativa ao tamanho padrão de fonte do navegador, para fazer o calculo de conversão é `(tamanho-da-fonte-padrão-do-navegador) * (valor de rem)`
+
+```css
+/* Como normalmente o valor padrão do navegador 
+é 16px, no exemplo vou usar 16px. */    
+* {
+    height: 2.5rem;
+}
+```
+
+* Como `height` tem `2.5rem` e o valor padrão do navegador é 16px, o cálculo vai ser: `16px * 2.5rem = 40px`
+
+✴️ A **diferença** entre **`rem`** x **`em`** é que **`rem`** é **relativo ao elemento raiz**, já o **`em`** é relativo ao elemento atual.
+
+```css
+:root {
+    font-size: 16px;
+}
+
+.box {
+    border: 1px solid #232323;
+    display: inline-block;
+    width: 125px;
+}
+
+/* 5rem => 16px * 5rem = 80px */
+.rem {
+    font-size: 30px;
+    height: 5rem;
+}
+
+/* 5em => 30px * 5rem = 150px */
+.em {
+    font-size: 30px;
+    height: 5em;
+}
+```
+
+![exemplo-em-vs-rem](./media/exemplo-em-vs-rem.png)
+
+* No exemplo a **font-size** do site é de **16px**, sendo assim, a **`box1-rem`** vai ficar menor que a **`box2-em`** pois a altura da **`box1-rem`** ficou de 80px, já que **`rem`** calcula a partir do **elemento raiz** (tamanho da fonte padrão do site), e a altura da **`box2-em`** ficou de 150px, já que **`em`** calcula a partir do **elemento atual**.
+
+➡️ A **viewport** é a área visível da página web no navegador do usuário, ou seja, a "janela" através da qual se visualiza o conteúdo do site. Em design responsivo, a **viewport** é essencial para definir como a página se ajustará em diferentes dispositivos e tamanhos de tela, como desktops, tablets e smartphones. Medidas como vh (altura) e vw (largura) são usadas no CSS para adaptar elementos ao tamanho da **viewport**, permitindo que o layout seja dinâmico e responsivo conforme o tamanho da janela.
 
 ## Aula 17 - Exercício 3
 
