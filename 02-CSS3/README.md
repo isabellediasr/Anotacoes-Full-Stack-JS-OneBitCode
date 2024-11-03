@@ -630,7 +630,7 @@ body {
 
 * No exemplo a **font-size** do site é de **16px**, sendo assim, a **`box1-rem`** vai ficar menor que a **`box2-em`** pois a altura da **`box1-rem`** ficou de 80px, já que **`rem`** calcula a partir do **elemento raiz** (tamanho da fonte padrão do site), e a altura da **`box2-em`** ficou de 150px, já que **`em`** calcula a partir do **elemento atual**.
 
-➡️ A **viewport** é a área visível da página web no navegador do usuário, ou seja, a "janela" através da qual se visualiza o conteúdo do site. Em design responsivo, a **viewport** é essencial para definir como a página se ajustará em diferentes dispositivos e tamanhos de tela, como desktops, tablets e smartphones. Medidas como vh (altura) e vw (largura) são usadas no CSS para adaptar elementos ao tamanho da **viewport**, permitindo que o layout seja dinâmico e responsivo conforme o tamanho da janela.
+➡️ A **viewport** é a área visível da página web no navegador do usuário, ou seja, a "janela" através da qual se visualiza o conteúdo do site. Em design responsivo, a **viewport** é essencial para definir como a página se ajustará em diferentes dispositivos e tamanhos de tela, como desktops, tablets e smartphones. Medidas como **vh (altura)** e **vw (largura)** são usadas no CSS para adaptar elementos ao tamanho da **viewport**, permitindo que o layout seja dinâmico e responsivo conforme o tamanho da janela.
 
 ## Aula 17 - Exercício 3
 

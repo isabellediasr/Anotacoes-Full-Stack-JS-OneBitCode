@@ -18,6 +18,7 @@ h1, h2 {
 
 h1 {
     font-size: 3.5rem;
+    padding-bottom: 1rem;
 }
 
 h2 {
@@ -40,6 +41,10 @@ img {
     text-decoration: none;
     text-transform: uppercase;
     border-radius: 9999px;
+}
+
+.genres {
+    background-color: ;
 }
 
 footer {
