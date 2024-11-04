@@ -58,8 +58,7 @@ h2 {
     margin-top: 1rem;
 }
 
-.genre > a,
-.see-more > a {
+.genre > a, .see-more > a {
     background-color: #43abf6;
     border-radius: 9999px;
     color: #fff;

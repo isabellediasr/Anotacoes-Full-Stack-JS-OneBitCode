@@ -634,15 +634,62 @@ body {
 
 ## Aula 17 - Exercício 3
 
-
+### ❗ [**Exercício Resolvido**](../02-CSS3/Exercicios/Exercicio-03/Minha-Resolucao/) ❗
 
 ## Aula 18 - Resolução do Exercício 3
 
+### ❗ [**Resolução**](../02-CSS3/Exercicios/Exercicio-03/Resolucao-do-Exercicio/) ❗
 
+➡️ Dentro de algumas propriedades é possível definir quatro valores na mesma propriedade (quatro lados) seguindo a lógica: **cima**, **direita**, **baixo** e **esquerda**.
+
+➡️ Também é possível definir dois valores na mesma propriedade (vertical e horizontal) seguindo a lógica: **vertical** e **horizontal**. 
+
+```css
+/* Definindo 4 valores: cima, direita, baixo e esquerda */
+header {
+    padding: 16px 8px 4px 2px; 
+}    
+/* Definindo 2 valores: vertical e horizontal */
+body {
+    padding: 16px 32px;
+}    
+```
+
+✴️ `width: fit-content` ➜ Define a largura do conteúdo para caber o conteúdo.
+
+➡️ A propriedade `auto` é um valor especial que permite ao navegador calcular automaticamente o valor ideal de uma propriedade, adaptando o layout de acordo com o contexto.
+
+```css
+header {
+    display: block;
+    width: fit-content;
+    margin: 2rem auto;
+}
+```
 
 ## Aula 19 - Herança
 
+* `Herança` é o comportamento pelo qual certos estilos aplicados a um **elemento pai** são automaticamente passados para seus **elementos filhos**. Isso significa que propriedades de estilo podem ser **"herdadas"** ao longo dos elementos em uma árvore HTML, facilitando a manutenção do design e promovendo consistência visual sem precisar reaplicar o mesmo estilo em múltiplos elementos.
 
+### EXEMPLO
+```html
+<header>
+    <h1>Exemplo</h1>
+</header>
+```
+
+```css
+header {
+    background-color: #fff;
+    color: white;
+}    
+```
+
+✴️ Nesse caso o `<h1>` vai herdar os estilos no header, que é seu elemento pai, mesmo que os estilos não tenham sido aplicados diretamente a ele.
+
+➡️ Nem todas as propriedades CSS são herdadas. Propriedades relacionadas a texto e fontes (como color, font-size, font-family, etc.) geralmente são herdadas, pois essas afetam diretamente a legibilidade e o estilo do conteúdo textual.
+
+Outras propriedades, como margens, bordas e tamanhos, não são herdadas por padrão, pois isso poderia desorganizar o layout de maneira indesejada.
 
 ## Aula 20 - Especificidade
 
