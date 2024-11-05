@@ -693,15 +693,156 @@ Outras propriedades, como margens, bordas e tamanhos, não são herdadas por pad
 
 ## Aula 20 - Especificidade
 
+* A especificidade determina a ordem de prioridade das **regras CSS** que se aplicam a elementos HTML.
 
+➡️ Ordem de aplicação das regras:
+
+\- Pelo formato em cascata do **CSS** os estilos são aplicados em uma ordem.
+\- Regras definidas inline têm a maior especificidade.
+\- Regras em arquivos externos são aplicadas por último e têm menor especificidade.
+
+➡️ Especificidade de seletores:
+
+\- Seletores universais têm baixa especificidade.
+\- Seletores de tipo têm uma especificidade maior que os universais.
+\- Seletores de classe e atributo têm maior especificidade que os seletores de tipo.
+
+➡️ Combinações de seletores:
+
+\- Quando múltiplos seletores se aplicam a um elemento, suas especificidades se somam.
+\- A ordem dos seletores também importa em casos de empate na especificidade.
+
+➡️ **`!important`**
+
+\- O **"!important"** sobrepõe todas as outras regras de especificidade.
+\- Evite o uso excessivo de "!important" para não prejudicar a manutenção do código.
+
+### Níveis de Especificidade
+
+| Nível de Especificidade | Tipo de Seletor | Exemplo | Valor da Especificidade |
+| :---: | :---: | :---: | :---: |
+| **a** | Estilos inline | `style="color: red;"` | `(1, 0, 0, 0)` |
+| **b** | Seletor de ID | `#header` | `(0, 1, 0, 0)` |
+| **c** | Classe, pseudoclasse, atributo | `.nav`, `:hover`, `[type="text"]` | `(0, 0, 1, 0)` |
+| **d** | Seletor de elemento e pseudoelemento | `p`, `h1`, `::before` | `(0, 0, 0, 1)` |
+| **Sobrescrita com `!important`** | Qualquer seletor marcado como `!important` | `color: red !important;` | Superior a qualquer valor de especificidade |
+
+### Exemplo Prático de Especificidade
+
+| Regra CSS | Especificidade | Cor Aplicada |
+| :---: | :---: | :---: |
+| `p { color: blue; }` | `(0, 0, 0, 1)` | `blue` |
+| `.nav p { color: green; }` | `(0, 0, 1, 1)` | `green` |
+| `#header .nav p { color: red; }` | `(0, 1, 1, 1)` | **`red`** |
+
+### Pontuações de especificidade
+
+✴️ `Estilos inline` ➜ 1000 pontos (1, 0, 0, 0)
+
+✴️ `IDs` ➜ 100 pontos (0, 1, 0, 0)
+
+✴️ `Classes, Pseudo-classes e Atributos` ➜ 10 pontos (0, 0, 1, 0)
+
+✴️ `Elementos e Pseudo-elementos` ➜ 1 pontos (0, 0, 0, 1)
 
 ## Aula 21 - Seletores Avançados
 
+### Seletores de Atributo
 
+| Seletor | Descrição | Exemplo |
+|:---:|:---:|:---:|
+| `[atributo]` | Seleciona elementos com um atributo específico. | `[type]` seleciona todos os elementos com o atributo `type`. |
+| `[atributo="valor"]` | Seleciona elementos com um valor exato de atributo. | `[type="text"]` seleciona todos os elementos onde `type` é exatamente `text`. |
+| `[atributo~="valor"]` | Seleciona elementos com um valor que inclui uma palavra específica. | `[class~="botao"]` seleciona elementos onde `class` inclui `botao`. |
+| `[atributo^="valor"]` | Seleciona elementos com valor de atributo que começa com um valor específico. | `[href^="https"]` seleciona links que começam com "https". |
+| `[atributo$="valor"]` | Seleciona elementos com valor de atributo que termina com um valor específico. | `[src$=".jpg"]` seleciona imagens com URLs terminando em `.jpg`. |
+| `[atributo*="valor"]` | Seleciona elementos que contêm um valor específico no atributo. | `[title*="dica"]` seleciona elementos onde `title` contém "dica". |
+
+### Pseudo-classes
+
+| Pseudo-classe | Descrição | Exemplo |
+| :---: | :---: | :---: |
+| `:hover` | Aplica estilo ao elemento quando o mouse está sobre ele. | `button:hover { background: lightblue; }` muda a cor do botão ao passar o mouse. |
+| `:focus` | Aplica estilos a um elemento quando ele recebe foco. | `input:focus { outline: 2px solid blue; }` aplica contorno azul ao campo focado. |
+| `:active` | Aplica estilos ao elemento enquanto está sendo ativado. | `button:active { background: blue; }` muda a cor do botão enquanto é pressionado. |
+| `:checked` | Seleciona elementos que estão marcados (ex.: checkboxes). | `input:checked { background: green; }` aplica fundo verde a checkboxes marcados. |
+| `:disabled` | Seleciona elementos que estão desativados. | `input:disabled { opacity: 0.5; }` torna campos desativados mais transparentes. |
+| `:enabled` | Seleciona elementos que estão ativados. | `input:enabled { border: 1px solid green; }` aplica borda verde a campos ativados. |
+| `:nth-child()` | Seleciona o enésimo filho de um elemento. | `li:nth-child(2) { color: green; }` aplica cor verde ao segundo item de lista. |
+| `:first-child` | Seleciona o primeiro filho de um elemento pai. | `p:first-child { color: red; }` aplica cor vermelha ao primeiro parágrafo. |
+| `:last-child` | Seleciona o último filho de um elemento pai. | `p:last-child { margin-bottom: 0; }` remove margem inferior do último parágrafo. |
+| `:valid` | Seleciona campos de entrada que contêm dados válidos. | `input:valid { border: 1px solid green; }` aplica borda verde a campos válidos. |
+| `:invalid` | Seleciona campos que contêm dados inválidos. | `input:invalid { border: 1px solid red; }` aplica borda vermelha a campos inválidos. |
+
+
+
+✴️ `nth-child(n)` ➜ Na definição de `n` podemos definir como um número, uma expressão numérica **(2n-1)**, ímpar **(odd)** ou par **(even)**.
+
+### Pseudo-elementos
+
+| Pseudo-elemento | Descrição | Exemplo |
+|:---:|:---:|:---:|
+| `::before` | Insere conteúdo antes do conteúdo de um elemento. | `p::before { content: "Nota: "; }` insere "Nota: " antes do texto do parágrafo. |
+| `::after` | Insere conteúdo após o conteúdo de um elemento. | `p::after { content: "*"; }` insere um asterisco após o texto do parágrafo. |
+| `::cue` | Aplica estilo a legendas e faixas de texto em mídias. | `::cue { color: yellow; }` aplica cor às legendas. |
+| `::first-letter` | Seleciona a primeira letra do conteúdo de um elemento. | `p::first-letter { font-size: 2em; }` aumenta a primeira letra do parágrafo. |
+| `::first-line` | Seleciona a primeira linha do conteúdo de um elemento. | `p::first-line { color: blue; }` muda a cor da primeira linha do parágrafo. |
+| `::selection` | Estiliza a área de texto selecionada pelo usuário. | `::selection { background: yellow; }` muda a cor de fundo do texto selecionado. |
+| `::slotted` | Aplica estilo ao conteúdo distribuído dentro de slots em Web Components. | `::slotted(span) { color: red; }` aplica cor aos spans em slots. |
+| `::backdrop` | Estiliza o fundo de modais e caixas de diálogo. | `::backdrop { background: rgba(0, 0, 0, 0.8); }` aplica cor de fundo ao modal. |
+| `::placeholder` | Estiliza o texto de placeholder em campos de entrada. | `input::placeholder { color: gray; }` muda a cor do placeholder. |
+| `::marker` | Estiliza o marcador de itens de lista. | `li::marker { color: red; }` muda a cor do marcador da lista. |
+| `::spelling-error` | Estiliza palavras com erros de ortografia. | `::spelling-error { text-decoration: underline red; }` destaca erros de ortografia. |
+| `::grammar-error` | Estiliza palavras ou frases com erros de gramática. | `::grammar-error { text-decoration: underline blue; }` destaca erros de gramática. |
 
 ## Aula 22 - Variáveis
 
+* A forma mais fácil de criar uma variável é usando o elemento `:root`.
 
+* Para criar o nome de uma variável, basta colocar o nome da variável depois de `--`
+
+```css
+:root {
+    --nome-da-variavel: instrucao-da-variavel;
+}
+```
+
+* Para usar a variável em um elemento, basta colocar dentro da estrutura `var()`.
+
+```css
+header {
+    background-color: var(nome-da-var);
+}
+```
+
+* Também é possível atribuir outro valor pra variável de forma local.
+
+**Exemplo**
+
+```html
+<body>
+    <section>
+        <div>caixa-branca</div>
+        <div class="red-box">caixa-vermelha</div>
+    </section>    
+</body>
+```
+
+```css
+:root {
+    --cor-principal: white;
+}
+
+div {
+    background-color: var(--cor-principal);
+}
+
+.red-box {
+    --cor-principal: red;
+}
+```
+
+* Nesse caso, a variável global vai continuar sendo da cor branca, mas a variável daquele elemento vai passar a ser **vermelha** pois foi atribuída outra cor.
 
 ## Aula 23 - Projeto Prático: Site Completo com HTML e CSS - Parte 1
 
