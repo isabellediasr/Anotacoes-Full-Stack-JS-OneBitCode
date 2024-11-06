@@ -846,30 +846,32 @@ div {
 
 ## Aula 23 - Projeto Prático: Site Completo com HTML e CSS - Parte 1
 
-
+### ❗ [**Exercício Resolvido**](../02-CSS3/Exercicio-Final/Minha-Resolucao/) ❗
 
 ## Aula 24 - Projeto Prático: Site Completo com HTML e CSS - Parte 2
 
-
+### ❗ [**Resolução**](../02-CSS3/Exercicio-Final/Resolucao-do-Exercicio/) ❗
 
 ## Aula 25 - Exercício Extra
 
-
+### ❗ [**Exercício Resolvido**](../02-CSS3/Exercicios/Exercicio-Extra/Minha-Resolucao/) ❗
 
 ## Aula 26 - Resolução do Exercício Extra - Parte 1
 
-
+### ❗ [**Exercício Resolvido**](../02-CSS3/Exercicios/Exercicio-Extra/Resolucao-do-Exercicio/) ❗
 
 ## Aula 27 - Resolução do Exercício Extra - Parte 2
 
-
+### ❗ [**Exercício Resolvido**](../02-CSS3/Exercicios/Exercicio-Extra/Resolucao-do-Exercicio/) ❗
 
 ## Aula 28 - Resolução do Exercício Extra - Parte 3
 
-
+### ❗ [**Exercício Resolvido**](../02-CSS3/Exercicios/Exercicio-Extra/Resolucao-do-Exercicio/) ❗
 
 ## Aula 29 - Encerramento
 
-
+### ❗ **Nenhuma anotação** ❗
 
 ## Aula 30 - Prova Final com Certificado
+
+### ❗ **Prova feita Online** ❗
