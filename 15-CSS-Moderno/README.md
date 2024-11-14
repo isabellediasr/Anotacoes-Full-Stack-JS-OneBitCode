@@ -1,4 +1,4 @@
-# Anotações de CSS3 ![css logo](./media/logo-css3.png) 
+# Anotações de CSS3 ![css logo](media/logo-css3.png) 
  
   - [Aula 01 - Introdução ao Módulo](#aula-01---introdução-ao-módulo)
   - [Aula 02 - Conhecendo o Flexbox](#aula-02---conhecendo-o-flexbox)
@@ -60,7 +60,7 @@
 
 | **flex container** | **flex items** | **eixo principal** | **eixo perpendicular** |
 | :---: | :---: | :---: | :---: |
-| O elemento que usa `display: flex` se torna um **"flex container"**, ele engloba os itens que serão organizados. | Os elementos dentro do container flex são chamados de **"flex items"**, esses itens são organizados pelo **Flexbox**. | Direção na qual os itens flex serão distribuídos, usado para justificar os itens (padrão: horizontal, da **esquerda** para  **direita**) | Direção perpendicular à principal (90°), usado para alinhar os itens (padrão: vertical, de cima para baixo) |
+| O elemento que usa `display: flex` se torna um **"flex container"**, ele engloba os itens que serão organizados. | Os elementos dentro do container flex são chamados de **"flex items"**, esses itens são organizados pelo **Flexbox**. | Direção na qual os itens flex serão distribuídos, usado para justificar os itens (padrão: horizontal, da **esquerda** para  **direita**). | Direção perpendicular à principal (90°), usado para alinhar os itens (padrão: vertical, de cima para baixo). |
 
 ## Aula 03 - As principais propriedades do Flex
 
