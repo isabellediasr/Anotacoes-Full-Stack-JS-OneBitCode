@@ -64,6 +64,16 @@
 
 ## Aula 03 - As principais propriedades do Flex
 
+* Quando usado somente `display: flex` a um elemento, os elementos serão organizados na horizontal e da esquerda para a direita de forma padrão, e para alterar a direção, é usado o `flex-direction`.
+
+➡️ O `flex-direction` tem quatro valores possíveis:
+
+| **Valor** | **Descrição** | **Eixo Principal** | **Ordem de Distribuição** |
+| :---: | :---: | :---: | :---: |
+| **row** | Direção padrão. Os itens são organizados em uma linha horizontal, da esquerda para a direita. | Horizontal | Da esquerda para a direita |
+| **row-reverse** | Os itens são organizados em uma linha horizontal, mas da direita para a esquerda. | Horizontal | Da direita para a esquerda |
+| **column** | Os itens são organizados em uma coluna vertical, de cima para baixo. | Vertical | De cima para baixo |
+| **column-reverse** | Os itens são organizados em uma coluna vertical, mas de baixo para cima. | Vertical | De baixo para cima |
 
 
 ## Aula 04 - Quiz 1 - Conceitos básicos do Flex
