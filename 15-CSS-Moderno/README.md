@@ -75,10 +75,33 @@
 | **column** | Os itens são organizados em uma coluna vertical, de cima para baixo. | Vertical | De cima para baixo |
 | **column-reverse** | Os itens são organizados em uma coluna vertical, mas de baixo para cima. | Vertical | De baixo para cima |
 
+✴️ `justify-content` ➜ Define como os itens flexíveis são distribuídos ao longo do eixo principal dentro de um contêiner flex.
+
+| **Valor** | **Descrição** | **Distribuição no Eixo Principal** |
+| :---: | :---: | :---: |
+| **`flex-start`** | Alinha os itens ao início do eixo principal (padrão). | Todos os itens começam no lado inicial. |
+| **`flex-end`** | Alinha os itens ao final do eixo principal. | Todos os itens são empurrados para o final. |
+| **`center`** | Centraliza os itens ao longo do eixo principal. | Itens são agrupados no centro. |
+| **`space-between`**| Distribui os itens uniformemente, com o primeiro e o último colados nas extremidades. | Espaço apenas entre os itens; nenhum nas bordas. |
+| **`space-around`** | Distribui os itens uniformemente, com espaços iguais ao redor de cada item. | Espaço ao redor dos itens é igual, mas o espaço entre itens é maior. |
+| **`space-evenly`** | Distribui os itens com espaçamento igual entre eles e nas extremidades do contêiner. | Espaços uniformes entre todos os itens e as bordas. |
+| **`start`** | Alinha os itens ao início físico do eixo, respeitando a direção de escrita. | Similar a `flex-start`, mas adaptado ao idioma (ex.: RTL ou LTR). |
+| **`end`** | Alinha os itens ao final físico do eixo, respeitando a direção de escrita. | Similar a `flex-end`, mas adaptado ao idioma (ex.: RTL ou LTR). |
+
 
 ## Aula 04 - Quiz 1 - Conceitos básicos do Flex
 
+| **Valor** | **Descrição** | **Distribuição no Eixo Cruzado** |
+| :---: | :---: | :---: |
+| **`stretch`** | Alinha os itens ao longo do eixo cruzado, ajustando o tamanho para preencher todo o espaço (padrão). | Os itens são esticados para preencher o espaço disponível. |
+| **`flex-start`** | Alinha os itens ao início do eixo cruzado. | Os itens ficam no início do eixo cruzado. |
+| **`flex-end`** | Alinha os itens ao final do eixo cruzado. | Os itens são empurrados para o final do eixo cruzado. |
+| **`center`** | Centraliza os itens ao longo do eixo cruzado. | Os itens são alinhados no centro do eixo cruzado. |
+| **`baseline`** | Alinha os itens pelas suas linhas de base do texto. | Os itens são alinhados com base na linha de base de seus conteúdos. |
+| **`start`** | Alinha os itens ao início físico do eixo, respeitando a direção de escrita. | Similar a `flex-start`, mas adaptado ao idioma (ex.: RTL ou LTR). |
+| **`end`** | Alinha os itens ao final físico do eixo, respeitando a direção de escrita. | Similar a `flex-end`, mas adaptado ao idioma (ex.: RTL ou LTR). |
 
+✴️ `gap` ➜ A propriedade **gap** no CSS é usada para definir o espaçamento entre os itens flexíveis ou itens de grid.
 
 ## Aula 05 - Exercício 1 - Distribuindo Elementos
 
