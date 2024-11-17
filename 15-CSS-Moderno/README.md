@@ -88,8 +88,7 @@
 | **`start`** | Alinha os itens ao início físico do eixo, respeitando a direção de escrita. | Similar a `flex-start`, mas adaptado ao idioma (ex.: RTL ou LTR). |
 | **`end`** | Alinha os itens ao final físico do eixo, respeitando a direção de escrita. | Similar a `flex-end`, mas adaptado ao idioma (ex.: RTL ou LTR). |
 
-
-## Aula 04 - Quiz 1 - Conceitos básicos do Flex
+✴️ `align-items` ➜ Define como os itens flexíveis são alinhados ao longo do eixo cruzado dentro de um contêiner flex.
 
 | **Valor** | **Descrição** | **Distribuição no Eixo Cruzado** |
 | :---: | :---: | :---: |
@@ -102,6 +101,10 @@
 | **`end`** | Alinha os itens ao final físico do eixo, respeitando a direção de escrita. | Similar a `flex-end`, mas adaptado ao idioma (ex.: RTL ou LTR). |
 
 ✴️ `gap` ➜ A propriedade **gap** no CSS é usada para definir o espaçamento entre os itens flexíveis ou itens de grid.
+
+## Aula 04 - Quiz 1 - Conceitos básicos do Flex
+
+### ❗ **Quiz realizado na plataforma** ❗
 
 ## Aula 05 - Exercício 1 - Distribuindo Elementos
 
