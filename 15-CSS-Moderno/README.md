@@ -108,15 +108,15 @@
 
 ## Aula 05 - Exercício 1 - Distribuindo Elementos
 
-
+### ❗ [**Exercício Resolvido**](../15-CSS-Moderno/Exercicios/Exercicio-01/Minha-Resolucao/) ❗
 
 ## Aula 06 - Resolução do Exercício 1 - Parte 1
 
-
+### ❗ [**Resolução**](../15-CSS-Moderno/Exercicios/Exercicio-01/Resolucao-do-Exercicio/) ❗
 
 ## Aula 07 - Resolução do Exercício 1 - Parte 2
 
-
+### ❗ [**Resolução**](../15-CSS-Moderno/Exercicios/Exercicio-01/Resolucao-do-Exercicio/) ❗
 
 ## Aula 08 - Propriedades dos filhos de uma container Flex
 
