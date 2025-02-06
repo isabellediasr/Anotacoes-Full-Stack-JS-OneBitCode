@@ -1,4 +1,4 @@
-# Anotações de TypeScript ![typecript logo](./media/logo-typecript.png)
+# Anotações de TypeScript ![typescript logo](./media/logo-typecript.png)
 
 - [Aula 01 - Introdução ao Módulo](#aula-01---introdução-ao-módulo)
 - [Aula 02 - O que é TypeScript](#aula-02---o-que-é-typecript)
