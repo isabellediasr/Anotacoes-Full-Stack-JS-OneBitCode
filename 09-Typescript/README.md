@@ -77,11 +77,56 @@
 
 ## Aula 07 - Como instalar e usar o TypeScript
 
+✴️ Passo a passo para instalar o TypeScript:
 
+➡️ Baixar o **Node.js**.
+
+➡️ Criar ou entrar na pasta de criação para o projeto. 
+
+➡️ Através do **terminal** ou do **git bash**, escrever o seguinte comando para iniciar o projeto **node.js**:
+```
+    npm init -y
+```
+
+➡️ Como o projeto iniciado, instalar o **TypeScript** como dependência de desenvolvimento: 
+```
+   npm install --save-dev typescript 
+```
+
+✴️ Como rodar o código:
+
+➡️ Dentro do ambiente do projeto, através do **terminal** ou do **git bash**, escrever o comando para executar o compilador:
+```
+   tsc index.ts 
+```
+`tsc` significa "TypeScript Compiler" | `"index.ts"` é o nome do arquivo seguido da extensão do arquivo em TypeScript.
+
+Após rodar o comando, um arquivo JavaScript será criado.
+
+➡️ O arquivo que devemos executar é o arquivo em JavaScript que foi criado. Para rodar esse código, basta escrever:
+
+```
+   node index.js 
+```
+
+✴️ É possível criar um atalho para a execução desse programa:
+
+➡️ Dentro do arquivo `package.json`, dentro da sessão de scripts, criamos um script `"build"`.
+```js
+"scripts": {
+    "build" = tsc index.ts
+} 
+```
+
+➡️ Para executar o comando basta escrever: 
+
+```
+   npm run build 
+```
 
 ## Aula 08 - Configurações do compilador tsc
 
-
+É possível alterar a configuração padrão do compilador através do arquivo opicional `"tsconfig.json"`
 
 ## Aula 09 - Seu primeiro código em TypeScript
 
