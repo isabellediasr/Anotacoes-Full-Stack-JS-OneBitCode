@@ -1,4 +1,4 @@
-# Anotações de Git e GitHub ![github logo](./media/github-logo.png) ![git logo](./media/git-logo.png)
+# Anotações de Git e GitHub ![github logo](./media/logo-github.png) ![git logo](./media/logo-git.png)
 
 - [Aula 01 - Introdução do Módulo](#aula-01---introdução-do-módulo)
 - [Aula 02 - Conhecendo o Git](#aula-02---conhecendo-o-git)
