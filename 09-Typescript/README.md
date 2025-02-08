@@ -1,7 +1,7 @@
 # Anotações de TypeScript ![typescript logo](./media/logo-typescript.png)
 
 - [Aula 01 - Introdução ao Módulo](#aula-01---introdução-ao-módulo)
-- [Aula 02 - O que é TypeScript](#aula-02---o-que-é-typescript)
+- [Aula 02 - O que é TypeScript e porque usar](#aula-02---o-que-é-typescript-e-porque-usar)
 - [Aula 03 - TypeScript vs Javascript](#aula-03---typescript-vs-javascript)
 - [Aula 04 - Principais features do TypeScript](#aula-04---principais-features-do-typescript)
 - [Aula 05 - Tipos primitivos](#aula-05---tipos-primitivos)
@@ -39,7 +39,7 @@
 
 ### ❗ **Nenhuma anotação** ❗
 
-## Aula 02 - O que é TypeScript
+## Aula 02 - O que é TypeScript e porque usar
 
 * "**TypeScript** é **JavaScript** com sintaxe para tipos"
 * **TypeScript** é uma linguagem de programação, assim como o **JavaScript**. Ele é um **superset** de **JavaScript**, ou seja, é uma linguagem contruída "em cima" do **JavaScript**.
@@ -85,19 +85,34 @@
 
 ➡️ Através do **terminal** ou do **git bash**, escrever o seguinte comando para iniciar o projeto **node.js**:
 ```
-    npm init -y
+npm init -y
 ```
 
 ➡️ Como o projeto iniciado, instalar o **TypeScript** como dependência de desenvolvimento: 
 ```
-   npm install --save-dev typescript 
+npm install typescript @types/node -D
 ```
+
+➡️ Para criar um arquivo de configuração do **TypeScript** chamado `"tsconfig.json"`:
+
+```
+npx tsc --init
+```
+
+➡️ 
 
 ✴️ Como rodar o código:
 
+➡️ Dentro do arquivo `package.json`, dentro da sessão de scripts, criamos um script `"build": "tsc"`.
+```json
+"scripts": {
+    "build" = "tsc" 
+} 
+```
+
 ➡️ Dentro do ambiente do projeto, através do **terminal** ou do **git bash**, escrever o comando para executar o compilador:
 ```
-   tsc index.ts 
+   npm run build 
 ```
 `tsc` significa "TypeScript Compiler" | `"index.ts"` é o nome do arquivo seguido da extensão do arquivo em TypeScript.
 
@@ -106,27 +121,12 @@ Após rodar o comando, um arquivo JavaScript será criado.
 ➡️ O arquivo que devemos executar é o arquivo em JavaScript que foi criado. Para rodar esse código, basta escrever:
 
 ```
-   node index.js 
-```
-
-✴️ É possível criar um atalho para a execução desse programa:
-
-➡️ Dentro do arquivo `package.json`, dentro da sessão de scripts, criamos um script `"build"`.
-```js
-"scripts": {
-    "build" = tsc index.ts
-} 
-```
-
-➡️ Para executar o comando basta escrever: 
-
-```
-   npm run build 
+node index.js 
 ```
 
 ## Aula 08 - Configurações do compilador tsc
 
-É possível alterar a configuração padrão do compilador através do arquivo opicional `"tsconfig.json"`
+É possível alterar a configuração padrão do compilador através do arquivo `"tsconfig.json"`.
 
 ## Aula 09 - Seu primeiro código em TypeScript
 
