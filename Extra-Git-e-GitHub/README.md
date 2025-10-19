@@ -51,11 +51,11 @@
 
 ## Aula 07 - Exercício 1
 
-
+### ❗ [**Exercício Resolvido**](../) ❗
 
 ## Aula 08 - Resolução de Exercício 1
 
-
+### ❗ [**Resolução**](../) ❗
 
 ## Aula 09 - Entendendo as Branches
 
@@ -71,11 +71,11 @@
 
 ## Aula 12 - Exercício 2
 
-
+### ❗ [**Exercício Resolvido**](../) ❗
 
 ## Aula 13 - Resolução do Exercício 2
 
-
+### ❗ [**Resolução**](../) ❗
 
 ## Aula 14 - Repositórios Remotos e GitHub
 
@@ -95,11 +95,11 @@
 
 ## Aula 18 - Exercício 3
 
-
+### ❗ [**Exercício Resolvido**](../) ❗
 
 ## Aula 19 - Resolução do Exercício 3
 
-
+### ❗ [**Resolução**](../) ❗
 
 ## Aula 20 - Fluxo de Trabalho Colaborativo
 
