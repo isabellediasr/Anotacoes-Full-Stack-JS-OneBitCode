@@ -80,7 +80,7 @@ Link do site para a instalação https://www.postgresql.org/
 - Serve para criação de tabelas, inserção de linhas, consulta e manipulação dos dados, gerenciamento de acesso, etc.
 - Exemplos de comandos SQL:
 
-```sql
+```postgresql
 CREATE TABLE Clientes;
 SELECT nome, telefone FROM Clientes;
 ```
@@ -111,7 +111,7 @@ SELECT nome, telefone FROM Clientes;
 > Temos duas tabelas: **clientes** e **endereços.**
 > Um relacionamento entre essas tabelas permite que associemos uma linha da tabela usuários a um endereço específico.
 >
-> ```sql
+> ```postgresql
 > Usuário
 > id: 312
 >  nome: "Isaac"
@@ -120,7 +120,7 @@ SELECT nome, telefone FROM Clientes;
 > id_endereco: 9634
 > ```
 >
-> ```sql
+> ```postgresql
 > Usuário
 > id: 312
 >  nome: "Isaac"
@@ -236,10 +236,124 @@ Escolher o tipo de dado adequado é crucial para a eficiência, integridade e ot
 | ENUM    | Conjunto de valores predefinidos                                                           |
 | JSON    | Armazena dados em formato JSON                                                             |
 
-
-
 ## Aula 07 - Criando Bancos de Dados e Tabelas (DDL)
 
+Abrindo o terminal (psql),
+
+✴️ `\list ou \l` ➜ Lista os bancos existentes.
+
+✴️ `\q` ➜ Sai do terminal (psql).
+
+✴️ `\connect ou \l` ➜ Conecta à um banco de dados expecífico.
+
+```postgresql
+\c nome_do_banco
+```
+
+> Para saber mais sobre os comandos seguindos do \, basta escrever \? no terminal que irão ser exibidos os comandos e descrições.
+
+### ALTER
+
+O comando `ALTER` serve para **alterar um objeto já existente** no banco de dados.
+
+- Em resumo: `ALTER` = “modificar algo que já existe”.
+
+| Nível                                       | O que pode alterar          | Exemplos comuns                               |
+| ------------------------------------------- | --------------------------- | --------------------------------------------- |
+| **Estrutural (tabelas, colunas)**           | estrutura física de objetos | `ALTER TABLE`, `ALTER COLUMN`                 |
+| **Administrativo (usuários, roles, banco)** | permissões, donos, nomes    | `ALTER USER`, `ALTER DATABASE`                |
+| **Lógico (views, índices, sequences)**      | elementos auxiliares        | `ALTER VIEW`, `ALTER INDEX`, `ALTER SEQUENCE` |
+
+> ```postgresql
+> ALTER TABLE clientes ADD email VARCHAR(100);
+> ALTER DATABASE loja RENAME TO loja_digital;
+> ```
+>
+> `ADD` ➜ Adiciona
+> `RENAME TO` ➜ Renomeia
+
+### Formas de Apagar
+
+| Comando      | Atua sobre         | O que faz                                                                                                                           | Pode usar `WHERE`? | Reversível (com ROLLBACK)?      | Remove dados?            | Remove estrutura? |
+| ------------ | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ------------------------------- | ------------------------ | ----------------- |
+| **DELETE**   | Linhas (registros) | Remove registros específicos ou todos, dependendo do `WHERE`. Importante sempre usar `WHERE` no `DELETE` se não quiser apagar tudo. | ✅ Sim             | ✅ Sim (se dentro de transação) | ✅ Sim (linha por linha) | ❌ Não            |
+| **TRUNCATE** | Tabela (dados)     | Remove **todos os registros** rapidamente, mas mantém a estrutura.                                                                  | ❌ Não             | ❌ Não                          | ✅ Sim (tudo de uma vez) | ❌ Não            |
+| **DROP**     | Objeto (estrutura) | Exclui **a tabela inteira** (estrutura + dados) de forma definitiva.                                                                | ❌ Não             | ❌ Não                          | ✅ Sim                   | ✅ Sim            |
+
+### Exemplos:
+
+```postgresql
+  DELETE FROM clientes WHERE id = 3;
+```
+```postgresql
+  TRUNCATE TABLE clientes;
+```
+```postgresql
+  DROP TABLE clientes;
+```
+
+### NOT NULL
+
+A restrição (constraint) `NOT NULL` é usada para impedir que uma coluna receba valores nulos (NULL), ou seja, obriga o preenchimento de um valor ao inserir ou atualizar dados.
+
+```postgresql
+CREATE TABLE clientes (
+	nome VARCHAR(255) NOT NULL,
+	phone VARCHAR(20),
+	email VARCHAR(100)
+);
+```
+
+> Significa que o nome é obrigado a ser preenchido.
+
+### SERIAL
+
+O tipo `SERIAL` é usado para gerar números automáticos sequenciais em uma coluna — geralmente em chaves primárias (id).
+
+Em outras palavras: ele cria um contador automático que aumenta sozinho a cada nova linha inserida.
+
+```postgresql
+CREATE TABLE clientes (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL,
+  email VARCHAR(100)
+);
+```
+
+> O que acontece:
+> 
+> O PostgreSQL cria automaticamente uma sequência interna (sequence).
+> 
+> A cada novo registro, ele gera o próximo número automaticamente.
+
+### UNIQUE
+
+A restrição `UNIQUE` garante que todos os valores de uma coluna (ou combinação de colunas) sejam únicos, ou seja, sem repetições.
+
+Ela impede duplicatas e ajuda a manter a integridade dos dados.
+
+```postgresql
+CREATE TABLE clientes (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL,
+  email VARCHAR(100) UNIQUE
+);
+```
+
+### IF NOT EXISTS
+
+A cláusula `IF NOT EXISTS` é usada para verificar se um objeto (como tabela, banco, sequência, índice, etc.) já existe antes de tentar criá-lo.
+
+Evita erros de duplicação ao executar comandos como CREATE.
+
+```postgresql
+CREATE DATABASE IF NOT EXISTS loja;
+CREATE TABLE IF NOT EXISTS clientes (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL,
+  email VARCHAR(100) UNIQUE
+);
+```
 
 
 ## Aula 08 - Exercício 1: Criação de Tabelas
@@ -293,14 +407,14 @@ Escolher o tipo de dado adequado é crucial para a eficiência, integridade e ot
 
 ### Identificando requisitos
 
-* Chamamos de **requisitos** as funcionalidades e regras necessárias para o sistema.
-* Os **stakeholders** têm um papel importante nessa etapa.
+- Chamamos de **requisitos** as funcionalidades e regras necessárias para o sistema.
+- Os **stakeholders** têm um papel importante nessa etapa.
 
-  * **Stakeholders** são as partes interessadas no desenvolvimento do sistema, geralmente quem melhor consegue definir o que o sistema precisa fazer.  
+  - **Stakeholders** são as partes interessadas no desenvolvimento do sistema, geralmente quem melhor consegue definir o que o sistema precisa fazer.
 
-* Devem ser coletadas tantas informações quanto for possível sobre como o sistema deverá se comportar.  
+- Devem ser coletadas tantas informações quanto for possível sobre como o sistema deverá se comportar.
 
-* Após analisar as informações coletadas, devem ser identificadas as **entidades** do sistema (ou seja, o que queremos armazenar de dados).
+- Após analisar as informações coletadas, devem ser identificadas as **entidades** do sistema (ou seja, o que queremos armazenar de dados).
 
 ### Definindo as tabelas
 
@@ -308,8 +422,8 @@ Escolher o tipo de dado adequado é crucial para a eficiência, integridade e ot
 - **Entidades** costumam se tornar **tabelas** e **atributos** costumam se tornar **colunas**.
 
 > **Exemplo:**  
-Entidade “alunos” → Tabela **"alunos"**  
-Entidade “professores” → Tabela **"professores"**  
+> Entidade “alunos” → Tabela **"alunos"**  
+> Entidade “professores” → Tabela **"professores"**
 
 Atributos “nome”, “telefone”, “matrícula”, “data de nascimento” se tornam **colunas**.
 
@@ -332,7 +446,6 @@ Atributos “nome”, “telefone”, “matrícula”, “data de nascimento”
 > **Exemplo:**  
 > Um sistema de imóveis precisa permitir consultas para obter **os usuários que demonstraram interesse em um imóvel disponível**.  
 > Logo, precisamos de uma forma de armazenar essa informação (antes mesmo de alugar o imóvel, que seria um relacionamento mais intuitivo).
-
 
 ## Aula 24 - Modelando um Banco de Dados - I
 
