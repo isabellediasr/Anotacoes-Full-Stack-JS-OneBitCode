@@ -285,9 +285,11 @@ O comando `ALTER` serve para **alterar um objeto já existente** no banco de dad
 ```postgresql
   DELETE FROM clientes WHERE id = 3;
 ```
+
 ```postgresql
   TRUNCATE TABLE clientes;
 ```
+
 ```postgresql
   DROP TABLE clientes;
 ```
@@ -321,9 +323,9 @@ CREATE TABLE clientes (
 ```
 
 > O que acontece:
-> 
+>
 > O PostgreSQL cria automaticamente uma sequência interna (sequence).
-> 
+>
 > A cada novo registro, ele gera o próximo número automaticamente.
 
 ### UNIQUE
@@ -355,48 +357,251 @@ CREATE TABLE IF NOT EXISTS clientes (
 );
 ```
 
-
 ## Aula 08 - Exercício 1: Criação de Tabelas
 
-### ❗ [**Exercício Resolvido**](../) ❗
+Crie um arquivo SQL (no formato do PostgreSQL) com os comandos para criar um banco de dados para uma lanchonete armazenar as informações do seu sistema. Esse arquivo deve então criar, caso não existam, as seguintes tabelas e colunas:
+
+- Clientes:
+
+  - id
+  - nome
+  - telefone
+  - endereço
+  - data de cadastro
+
+- Fornecedores:
+
+  - id
+  - nome
+  - telefone
+  - email
+  - data de contratação
+  - observações
+
+- Lanches:
+
+  - id
+  - nome
+  - descrição
+  - preço
+
+- Pedidos:
+
+  - id
+  - mesa
+  - data e hora do pedido
+  - situação
+
+- Ingredientes em estoque:
+
+  - id
+  - nome
+  - categoria
+  - quantidade
+
+### ❗ [**Exercício Resolvido**](../19-Banco-de-Dados-SQL/Exercicios/Exercicio-01/Minha-Resolucao/db_lanchonete.sql) ❗
 
 ## Aula 09 - Resolução do Exercício 1
 
-### ❗ [**Resolução**](../) ❗
+### ❗ [**Resolução**](../19-Banco-de-Dados-SQL/Exercicios/Exercicio-01/Resolucao-do-Exercicio/db_lanchonete.sql) ❗
+
+✴️ `DEFAULT` ➜ Define um valor padrão, ou seja, preenche automaticamente com um valor caso o valor não seja informado no `INSERT`.
+
+```postgresql
+CREATE TABLE pedidos (
+  id SERIAL PRIMARY KEY,
+  status VARCHAR(20) DEFAULT 'Pendente',
+  data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+| Coluna       | Se não enviar valor… | Recebe automaticamente |
+| ------------ | -------------------- | ---------------------- |
+| status       | Não informar nada    | `'Pendente'`           |
+| data_criacao | Não informar nada    | Data/hora atual        |
+
+> `CURRENT_TIMESTAMP` ➜ armazena a data e hora atual do servidor, geralmente usado para indicar quando o registro foi criado ou atualizado.
+
+✴️ `TEXT` ➜ Armazena cadeias de caracteres (texto) de tamanho variável e praticamente ilimitado.
+
+> Aceita qualquer quantidade de texto até o limite do banco.
+
+✴️ `DECIMAL` ➜ Tipo numérico exato, usado quando precisamos de precisão total, principalmente para valores financeiros.
+
+- Não gera arredondamentos indesejados como FLOAT/DOUBLE.
+
+```postgresql
+preco DECIMAL(10,2)
+```
+
+> Permite números até 10 dígitos no total, sendo 2 casas decimais.
 
 ## Aula 10 - Inserindo Linhas em uma Tabela
 
+Para inserir novos registros (linhas) em uma nova tabela do banco de dados, usamos o `INSERT`.
+
+```postgresql
+INSERT INTO
+  nome_tabela (coluna1, coluna2, coluna3)
+VALUES
+  (valor1, valor2, valor3);
+```
+
+> Exemplo:
+>
+> ```postgresql
+> INSERT INTO
+>   alunos (nome, idade, cidade)
+> VALUES
+>   ('Pedro', 22, 'Rio'),
+>   ('Marina', 19, 'BH'),
+>   ('Carlos', 21, 'Curitiba');
+> ```
+
 ## Aula 11 - Consultando Linhas de uma Tabela
+
+Para consultar dados de uma ou mais tabelas do banco de dados usamos o `SELECT`.
+
+| Elemento                            | Função                                                   | Exemplo                                                                  | Resultado                                     |
+| ----------------------------------- | -------------------------------------------------------- | ------------------------------------------------------------------------ | --------------------------------------------- |
+| `SELECT` colunas ou `SELECT` \*     | Escolhe quais colunas serão exibidas — `*` retorna todas | `SELECT` nome, idade `FROM` alunos;<br>`SELECT` \* `FROM` alunos;        | Retorna dados das colunas escolhidas ou todas |
+| `FROM`                              | Indica de qual tabela os dados devem ser consultados     | `SELECT` \* `FROM` alunos;                                               | Usa a tabela `alunos`                         |
+| `WHERE`                             | Filtra resultados com condição                           | `SELECT` \* `FROM` alunos `WHERE` idade > 18;                            | Retorna só alunos > 18                        |
+| `WHERE` com operador lógico (`AND`) | Filtragem com mais de uma condição                       | `SELECT` \* `FROM` alunos `WHERE` idade > 18 `AND` cidade = 'São Paulo'; | Maiores de 18 **e** da cidade de SP           |
+| `DISTINCT`                          | Remove duplicados                                        | `SELECT` `DISTINCT` cidade `FROM` alunos;                                | Retorna cidades únicas                        |
+| `IN`                                | Filtra usando uma lista de valores                       | `SELECT` \* `FROM` alunos `WHERE` cidade `IN` ('SP','RJ','BH');          | Retorna alunos dessas 3 cidades               |
 
 ## Aula 12 - Comandos Avançados de Consulta
 
+| Elemento               | Função                                              | Exemplo                                                     | Resultado                                    |
+| ---------------------- | --------------------------------------------------- | ----------------------------------------------------------- | -------------------------------------------- |
+| `ORDER BY`             | Ordena resultados                                   | `ORDER BY` idade `DESC`;                                    | Organiza por idade (maior → menor)           |
+| `LIMIT`                | Limita a quantidade de registros exibidos           | `SELECT` * `FROM` alunos `LIMIT` 5;                         | Mostra só 5 registros                        |
+| `OFFSET`               | “Pula” registros antes de exibir o resultado        | `SELECT` * `FROM` alunos `LIMIT` 5 `OFFSET` 5;              | Pula 5 e mostra mais 5                       |
+| `DISTINCT`             | Remove valores duplicados do resultado              | `SELECT` `DISTINCT` cidade `FROM` alunos;                   | Mostra cidades únicas                        |
+| Funções agregadas      | Calculam estatísticas                               | `SELECT` `COUNT(*)`, `AVG(idade)` `FROM` alunos;            | Quantidade total e média de idade            |
+| `LIKE`                 | Busca por padrão de texto com curingas              | `SELECT` * `FROM` alunos `WHERE` nome `LIKE` 'A%';          | Nomes que começam com "A"                    |
+| `%` e `_`              | `%` → qualquer sequência / `_` → um único caractere | `WHERE` nome `LIKE` '%silva%'  <br>  `WHERE` nome `LIKE` '_na' | Contém “silva” / 3 letras terminando em "na" |
+| `NOT LIKE`             | Exclui padrões de texto                             | `WHERE` email `NOT LIKE` '%@gmail.com'                      | Exclui e-mails do Gmail                      |
+| `ILIKE` *(PostgreSQL)* | LIKE sem diferenciar maiúsculas/minúsculas          | `WHERE` nome `ILIKE` '%ana%'                                | Encontra “Ana”, “ANA”, “aNa”…                |
+
+
 ## Aula 13 - Exercício 2: Consultando Dados
 
-### ❗ [**Exercício Resolvido**](../) ❗
+# Exercício 2: Banco de Filmes e Séries de TV
+
+Crie utilizando a linguagem SQL um banco de dados com duas tabelas: **filmes** e **série de TV**. Inclua também o código de inserção dos dados usando como referência as tabelas abaixo:
+
+- **Filmes**
+
+![alt text](/19-Banco-de-Dados-SQL/media/exercicio-2-tabela-1.png)
+
+- **Séries de TV**
+    
+![alt text](/19-Banco-de-Dados-SQL/media/exercicio-2-tabela-2.png)
+
+Além disso, crie também as seguintes consultas:
+
+- Todos os filmes em ordem alfabética.
+- Todos os filmes com bilheteria acima de US$ 500 milhões.
+- Os IDs, nomes, anos de lançamento, gêneros, número de temporadas e episódios, avaliações e situações das séries, ordenadas da mais recente para a mais antiga.
+- Todas as séries já finalizadas ordenadas da melhor avaliação para a pior.
+- Todos os filmes lançados antes dos anos 2000.
+- Os títulos, anos de lançamento, gênero e avaliação dos filmes ordenados por sua avaliação pela crítica.
+- A média de avaliação entre os filmes de até 2 horas e a média de avaliação dos filmes de mais de 2 horas (em colunas separadas).
+- Os nomes, anos de lançamento e avaliações dos filmes ordenados pelo lucro obtido, além do próprio lucro obtido (considere lucro como bilheteria - custo).
+
+### ❗ [**Exercício Resolvido**](../19-Banco-de-Dados-SQL/Exercicios/Exercicio-02/Minha-Resolucao/db_filmes_e_series.sql) ❗
 
 ## Aula 14 - Resolução do Exercício 2
 
-### ❗ [**Resolução**](../) ❗
+### ❗ [**Resolução**](../19-Banco-de-Dados-SQL/Exercicios/Exercicio-02/Resolucao-do-Exercicio/db_filmes_e_series.sql) ❗
+
+```postgresql
+SELECT
+    AVG(CASE WHEN duration <= 120 THEN rating ELSE NULL END) AS avg_rating_up_to_2_hours,
+    AVG(CASE WHEN duration > 120 THEN rating ELSE NULL END) AS avg_rating_over_2_hours
+FROM movies;
+```
+
+| Palavra  | Função                                                                  |
+| -------- | ----------------------------------------------------------------------- |
+| **CASE** | Inicia uma condição dentro do SQL                                       |
+| **WHEN** | Verifica a condição desejada                                            |
+| **THEN** | Valor retornado se a condição for verdadeira                            |
+| **ELSE** | Valor retornado se a condição for falsa                                 |
+| **END**  | Finaliza a estrutura do CASE                                            |
+| **AS**   | Dá um **nome personalizado** para o resultado da coluna (apelido/alias) |
+
+> ```postgresql
+> CASE 
+>   WHEN duration <= 120 THEN rating 
+>   ELSE NULL 
+> END AS avg_rating_up_to_2_hours
+> ```
+> * Se o filme atender à condição, então `rating`, se não, se torna `null`, e o `AVG()` ignora valores NULL.
 
 ## Aula 15 - Atualização e Exclusão de Linhas
 
+✴️ `UPDATE` ➜ É usado para alterar valores já existentes em uma tabela.
+
+```postgresql
+UPDATE nome_tabela
+SET coluna = novo_valor
+WHERE condição;
+```
+> ⚠️ Sempre use WHERE, senão TODOS os registros serão atualizados!
+
+✴️ `SET` ➜ Define quais valores serão modificados, podendo alterar uma ou mais colunas.
+
+* Assim como no uso do `UPDATE`, ao usar o `DELETE` temos que ter cuidado ou podem acontecer consequências irreverssíveis no banco de dados. É **muito** importante não esquecer do uso do `WHERE` para especificar onde aquele comando vai afetar.
+
 ## Aula 16 - Trabalhando com Backup e Restauração
+
+Backup e restauração são processos cruciais para garantir a segurança e integridade dos dados. No PostgreSQL, esses processos podem ser realizados usando os utilitários de linha de comando `pg_dump` e `pg_restore`.
+
+* Para criar um backup usando o `pg_dump`, um comando do terminal que deve seguir o seguinte formato:
+
+```postgresql
+pg_dump -U _nome_usuario -F c -b -v -f /caminho/do/arquivo.backup nome_do_banco
+```
+
+Explicação dos Parâmetros:
+
+| Parâmetro | Nome                          | O que faz                                          |
+| --------- | ----------------------------- | -------------------------------------------------- |
+| `-U`      | **User (Usuário)**            | Define o usuário que vai acessar o banco           |
+| `-d`      | **Database (Banco de Dados)** | Diz qual banco queremos fazer backup ou restaurar  |
+| `-h`      | **Host (Servidor)**           | Informa onde está o banco → padrão é localhost     |
+| `-p`      | **Port (Porta)**              | Porta do servidor PostgreSQL (padrão 5432)         |
+| `-s`      | **Schema Only**               | Faz backup apenas da estrutura (sem dados)         |
+| `-a`      | **Data Only**                 | Faz backup apenas dos dados (sem estrutura)        |
+| `-F c`     | **Format Custom**             | Cria backup em formato otimizado para `pg_restore` |
+| `-v`      | **Verbose**                   | Mostra detalhes do processo (log na tela)          |
 
 ## Aula 17 - Relacionamentos Entre Tabelas
 
+
+
 ## Aula 18 - Relacionamentos 1:1 e 1:n
+
+
 
 ## Aula 19 - Relacionamentos n:n
 
+
+
 ## Aula 20 - Integridade Referencial
+
+
 
 ## Aula 21 - Exercício 3: Tabelas Relacionadas
 
-### ❗ [**Exercício Resolvido**](../) ❗
+### ❗ [**Exercício Resolvido**](../19-Banco-de-Dados-SQL/Exercicios/Exercicio-03/Minha-Resolucao/) ❗
 
 ## Aula 22 - Resolução do Exercício 3
 
-### ❗ [**Resolução**](../) ❗
+### ❗ [**Resolução**](../19-Banco-de-Dados-SQL/Exercicios/Exercicio-03/) ❗
 
 ## Aula 23 - Introdução à Modelagem de Bancos de Dados
 
@@ -449,16 +654,23 @@ Atributos “nome”, “telefone”, “matrícula”, “data de nascimento”
 
 ## Aula 24 - Modelando um Banco de Dados - I
 
+
+
 ## Aula 25 - Modelando um Banco de Dados - II
+
+
 
 ## Aula 26 - Exercício 4: Modelando um BD Completo
 
-### ❗ [**Exercício Resolvido**](../) ❗
+### ❗ [**Exercício Resolvido**](../19-Banco-de-Dados-SQL/Exercicios/Exercicio-04/) ❗
 
 ## Aula 27 - Resolução do Exercício 4
 
-### ❗ [**Resolução**](../) ❗
+### ❗ [**Resolução**](../19-Banco-de-Dados-SQL/Exercicios/Exercicio-04/) ❗
 
 ## Aula 28 - Encerramento
 
+
+
 ## Aula 29 - Prova Final com Certificado
+
