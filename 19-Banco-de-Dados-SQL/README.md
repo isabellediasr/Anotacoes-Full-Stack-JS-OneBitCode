@@ -103,94 +103,6 @@ SELECT nome, telefone FROM Clientes;
 
 > Exemplos: BEGIN, COMMIT, ROLLBACK.
 
-### O que são relacionamentos?
-
-- Também chamados de associações, são formas de vincularmos os dados de uma tabela aos dados de outra tabela
-
-> **Exemplo:**
-> Temos duas tabelas: **clientes** e **endereços.**
-> Um relacionamento entre essas tabelas permite que associemos uma linha da tabela usuários a um endereço específico.
->
-> ```postgresql
-> Usuário
-> id: 312
->  nome: "Isaac"
->  email: "isaac@email.com"
->
-> id_endereco: 9634
-> ```
->
-> ```postgresql
-> Usuário
-> id: 312
->  nome: "Isaac"
->  email: "isaac@email.com"
->
-> id_endereco: 9634
-> ```
-
-### Como funcionam os relacionamentos?
-
-- **Chave Primária (_Primary Key_, ou simplesmente PK):** Coluna ou conjunto de colunas que identificam unicamente cada linha de uma tabela.
-
-- **Chave Estrangeira (_Foreign Key_, ou FK):** Coluna ou conjunto de colunas que estabelecem uma ligação entre duas tabelas.
-
-### Existem 3 tipos de relacionamentos no SQL
-
-- **1:1 (Um-para-Um):** Cada linha de uma tabela está relacionada a, no máximo, uma linha de outra tabela.
-
-```
-Ex.: um usuário possui um endereço e um endereço só pode pertencer a um usuário.
-```
-
-- **1:n (Um-para-Muitos):** Cada linha de uma tabela pode estar relacionada a múltiplas linhas de outra tabela.
-
-```
-Ex.: um filme possui um gênero, mas um mesmo gênero pode ser usado para vários filmes.
-```
-
-- **n:n (Muitos-para-Muitos):** Linhas de uma tabela podem estar relacionadas a múltiplas linhas de outra tabela e vice-versa, implementado com a ajuda de uma tabela intermediária.
-
-```
-Ex.: um post do blog pode ser classificado com várias tags, e uma mesma tag pode ser usada para classificar vários posts.
-```
-
-### Por que os relacionamentos são importantes?
-
-➜ Garantir integridade:
-
-- Relacionamentos ajudam a manter a consistência dos dados ao garantir que as associações entre tabelas sejam válidas
-
-  - **Exemplo:** se uma tabela Pedidos tem uma chave estrangeira que referencia a tabela Clientes, cada pedido deve estar associado a um cliente existente
-
-- As chaves estrangeiras impõem restrições que evitam a inserção de dados órfãos ou inconsistentes
-  - **Exemplo:** você não pode inserir um pedido para um cliente que não existe na tabela de Clientes
-
-➜ Evitar redundância:
-
-- Relacionamentos permitem a normalização do banco de dados, onde os dados são divididos em tabelas relacionadas de forma que cada peça de informação seja armazenada uma única vez
-
-  - **_Normalização_** _é um conjunto de regras que visa a organização de um projeto de banco de dados para reduzir a redundância de dados, aumentar a integridade de dados e o desempenho _
-
-- Com a redução da redundância, a manutenção dos dados se torna mais simples e menos propensa a erros
-- Atualizações feitas em uma tabela relacionada automaticamente se refletem nas associações, eliminando a necessidade de múltiplas atualizações em várias tabelas
-
-➜ Consultas eficientes:
-
-- Relacionamentos bem estruturados permitem a execução de operações de junção (JOIN) eficientes, que são essenciais para consultas complexas envolvendo múltiplas tabelas ao mesmo tempo
-
-  - **Exemplo:** para obter todos os pedidos feitos por um cliente, uma junção entre as tabelas Clientes e Pedidos pode ser realizada
-
-➜ Modelagem intuitiva:
-
-- Relacionamentos permitem que o modelo de dados do banco de dados reflita as relações do mundo real entre diferentes entidades
-
-➜ Controle de acesso e segurança:
-
-- Relacionamentos permitem controles de acesso mais precisos, permissões podem ser estabelecidas para que apenas determinados usuários possam modificar dados em tabelas específicas, enquanto outros possam apenas visualizar dados agregados ou relacionados
-
-- Através de relacionamentos bem definidos, é possível implementar políticas de segurança que garantem que os dados sensíveis sejam protegidos e acessados apenas conforme necessário, evitando vazamentos e acessos não autorizados
-
 ## Aula 06 - Tipos de Dados
 
 Tipos de dados definem a natureza dos valores que podem ser armazenados em uma coluna de uma tabela.
@@ -473,18 +385,17 @@ Para consultar dados de uma ou mais tabelas do banco de dados usamos o `SELECT`.
 
 ## Aula 12 - Comandos Avançados de Consulta
 
-| Elemento               | Função                                              | Exemplo                                                     | Resultado                                    |
-| ---------------------- | --------------------------------------------------- | ----------------------------------------------------------- | -------------------------------------------- |
-| `ORDER BY`             | Ordena resultados                                   | `ORDER BY` idade `DESC`;                                    | Organiza por idade (maior → menor)           |
-| `LIMIT`                | Limita a quantidade de registros exibidos           | `SELECT` * `FROM` alunos `LIMIT` 5;                         | Mostra só 5 registros                        |
-| `OFFSET`               | “Pula” registros antes de exibir o resultado        | `SELECT` * `FROM` alunos `LIMIT` 5 `OFFSET` 5;              | Pula 5 e mostra mais 5                       |
-| `DISTINCT`             | Remove valores duplicados do resultado              | `SELECT` `DISTINCT` cidade `FROM` alunos;                   | Mostra cidades únicas                        |
-| Funções agregadas      | Calculam estatísticas                               | `SELECT` `COUNT(*)`, `AVG(idade)` `FROM` alunos;            | Quantidade total e média de idade            |
-| `LIKE`                 | Busca por padrão de texto com curingas              | `SELECT` * `FROM` alunos `WHERE` nome `LIKE` 'A%';          | Nomes que começam com "A"                    |
-| `%` e `_`              | `%` → qualquer sequência / `_` → um único caractere | `WHERE` nome `LIKE` '%silva%'  <br>  `WHERE` nome `LIKE` '_na' | Contém “silva” / 3 letras terminando em "na" |
-| `NOT LIKE`             | Exclui padrões de texto                             | `WHERE` email `NOT LIKE` '%@gmail.com'                      | Exclui e-mails do Gmail                      |
-| `ILIKE` *(PostgreSQL)* | LIKE sem diferenciar maiúsculas/minúsculas          | `WHERE` nome `ILIKE` '%ana%'                                | Encontra “Ana”, “ANA”, “aNa”…                |
-
+| Elemento               | Função                                              | Exemplo                                                       | Resultado                                    |
+| ---------------------- | --------------------------------------------------- | ------------------------------------------------------------- | -------------------------------------------- |
+| `ORDER BY`             | Ordena resultados                                   | `ORDER BY` idade `DESC`;                                      | Organiza por idade (maior → menor)           |
+| `LIMIT`                | Limita a quantidade de registros exibidos           | `SELECT` \* `FROM` alunos `LIMIT` 5;                          | Mostra só 5 registros                        |
+| `OFFSET`               | “Pula” registros antes de exibir o resultado        | `SELECT` \* `FROM` alunos `LIMIT` 5 `OFFSET` 5;               | Pula 5 e mostra mais 5                       |
+| `DISTINCT`             | Remove valores duplicados do resultado              | `SELECT` `DISTINCT` cidade `FROM` alunos;                     | Mostra cidades únicas                        |
+| Funções agregadas      | Calculam estatísticas                               | `SELECT` `COUNT(*)`, `AVG(idade)` `FROM` alunos;              | Quantidade total e média de idade            |
+| `LIKE`                 | Busca por padrão de texto com curingas              | `SELECT` \* `FROM` alunos `WHERE` nome `LIKE` 'A%';           | Nomes que começam com "A"                    |
+| `%` e `_`              | `%` → qualquer sequência / `_` → um único caractere | `WHERE` nome `LIKE` '%silva%' <br> `WHERE` nome `LIKE` '\_na' | Contém “silva” / 3 letras terminando em "na" |
+| `NOT LIKE`             | Exclui padrões de texto                             | `WHERE` email `NOT LIKE` '%@gmail.com'                        | Exclui e-mails do Gmail                      |
+| `ILIKE` _(PostgreSQL)_ | LIKE sem diferenciar maiúsculas/minúsculas          | `WHERE` nome `ILIKE` '%ana%'                                  | Encontra “Ana”, “ANA”, “aNa”…                |
 
 ## Aula 13 - Exercício 2: Consultando Dados
 
@@ -497,7 +408,7 @@ Crie utilizando a linguagem SQL um banco de dados com duas tabelas: **filmes** e
 ![alt text](/19-Banco-de-Dados-SQL/media/exercicio-2-tabela-1.png)
 
 - **Séries de TV**
-    
+
 ![alt text](/19-Banco-de-Dados-SQL/media/exercicio-2-tabela-2.png)
 
 Além disso, crie também as seguintes consultas:
@@ -534,12 +445,13 @@ FROM movies;
 | **AS**   | Dá um **nome personalizado** para o resultado da coluna (apelido/alias) |
 
 > ```postgresql
-> CASE 
->   WHEN duration <= 120 THEN rating 
->   ELSE NULL 
+> CASE
+>   WHEN duration <= 120 THEN rating
+>   ELSE NULL
 > END AS avg_rating_up_to_2_hours
 > ```
-> * Se o filme atender à condição, então `rating`, se não, se torna `null`, e o `AVG()` ignora valores NULL.
+>
+> - Se o filme atender à condição, então `rating`, se não, se torna `null`, e o `AVG()` ignora valores NULL.
 
 ## Aula 15 - Atualização e Exclusão de Linhas
 
@@ -550,52 +462,279 @@ UPDATE nome_tabela
 SET coluna = novo_valor
 WHERE condição;
 ```
+
 > ⚠️ Sempre use WHERE, senão TODOS os registros serão atualizados!
 
 ✴️ `SET` ➜ Define quais valores serão modificados, podendo alterar uma ou mais colunas.
 
-* Assim como no uso do `UPDATE`, ao usar o `DELETE` temos que ter cuidado ou podem acontecer consequências irreverssíveis no banco de dados. É **muito** importante não esquecer do uso do `WHERE` para especificar onde aquele comando vai afetar.
+- Assim como no uso do `UPDATE`, ao usar o `DELETE` temos que ter cuidado ou podem acontecer consequências irreverssíveis no banco de dados. É **muito** importante não esquecer do uso do `WHERE` para especificar onde aquele comando vai afetar.
 
 ## Aula 16 - Trabalhando com Backup e Restauração
 
 Backup e restauração são processos cruciais para garantir a segurança e integridade dos dados. No PostgreSQL, esses processos podem ser realizados usando os utilitários de linha de comando `pg_dump` e `pg_restore`.
 
-* Para criar um backup usando o `pg_dump`, um comando do terminal que deve seguir o seguinte formato:
+- Para criar um backup usando o `pg_dump`, basta usar um comando no terminal que deve seguir o seguinte formato:
 
 ```postgresql
-pg_dump -U _nome_usuario -F c -b -v -f /caminho/do/arquivo.backup nome_do_banco
+pg_dump -U nome_usuario -F c -b -v -f ./caminho/do/arquivo.backup nome_do_banco
+```
+
+- Para criar restaurar usando o `pg_restore`, basta um comando no terminal que deve seguir o seguinte formato:
+
+```postgresql
+pg_restore -U nome_usuario -d nome_do_banco --create -v ./caminho/do/arquivo.backup
 ```
 
 Explicação dos Parâmetros:
 
-| Parâmetro | Nome                          | O que faz                                          |
-| --------- | ----------------------------- | -------------------------------------------------- |
-| `-U`      | **User (Usuário)**            | Define o usuário que vai acessar o banco           |
-| `-d`      | **Database (Banco de Dados)** | Diz qual banco queremos fazer backup ou restaurar  |
-| `-h`      | **Host (Servidor)**           | Informa onde está o banco → padrão é localhost     |
-| `-p`      | **Port (Porta)**              | Porta do servidor PostgreSQL (padrão 5432)         |
-| `-s`      | **Schema Only**               | Faz backup apenas da estrutura (sem dados)         |
-| `-a`      | **Data Only**                 | Faz backup apenas dos dados (sem estrutura)        |
-| `-F c`     | **Format Custom**             | Cria backup em formato otimizado para `pg_restore` |
-| `-v`      | **Verbose**                   | Mostra detalhes do processo (log na tela)          |
+| Parâmetro     | Nome                          | O que faz                                                                               |
+| ------------- | ----------------------------- | --------------------------------------------------------------------------------------- |
+| `-U`          | **User (Usuário)**            | Define o usuário que vai acessar o banco                                                |
+| `-d`          | **Database (Banco de Dados)** | Diz qual banco queremos fazer backup ou restaurar                                       |
+| `-h`          | **Host (Servidor)**           | Informa onde está o banco → padrão é localhost                                          |
+| `-p`          | **Port (Porta)**              | Porta do servidor PostgreSQL (padrão 5432)                                              |
+| `-s`          | **Schema Only**               | Faz backup apenas da estrutura (sem dados)                                              |
+| `-a`          | **Data Only**                 | Faz backup apenas dos dados (sem estrutura)                                             |
+| `-F c`        | **Format Custom**             | Cria backup em formato otimizado para `pg_restore`                                      |
+| `-v`          | **Verbose**                   | Mostra detalhes do processo (log na tela)                                               |
+| `--create`    | Create Database               | Inclui o comando `CREATE DATABASE` no backup, permitindo recriar o banco na restauração |
+| `--clean`     | Clean Database                | Remove objetos existentes antes de restaurar (usa `DROP` automaticamente)               |
+| `--if-exists` | Condicional de limpeza        | Usa `DROP IF EXISTS` junto com `--clean` para evitar erro se o objeto não existir       |
+
+- Para criar um backup de algo específico (por exemplo, uma tabela), basta usar um comando no terminal que deve seguir o seguinte formato:
+
+```postgresql
+pg_dump -v -F c -f ./caminho/do/arquivo.backup -t nome_da_tabela nome_do_banco
+```
+
+- Para restaurar o backup de algo es,.pecífico, basta usar um comando no terminal que deve seguir o seguinte formato:
+
+```postgresql
+pg_restore -t nome_da_tabela --data-only ./caminho/do/arquivo.backup
+```
 
 ## Aula 17 - Relacionamentos Entre Tabelas
 
+### O que são relacionamentos?
+
+- Também chamados de associações, são formas de vincularmos os dados de uma tabela aos dados de outra tabela
+
+> **Exemplo:**
+> Temos duas tabelas: **clientes** e **endereços.**
+> Um relacionamento entre essas tabelas permite que associemos uma linha da tabela usuários a um endereço específico.
+>
+> ```postgresql
+> Usuário
+> id: 312
+>  nome: "Isaac"
+>  email: "isaac@email.com"
+>
+> id_endereco: 9634
+> ```
+>
+> ```postgresql
+> Usuário
+> id: 312
+>  nome: "Isaac"
+>  email: "isaac@email.com"
+>
+> id_endereco: 9634
+> ```
+
+### Como funcionam os relacionamentos?
+
+- **Chave Primária (_Primary Key_, ou simplesmente PK):** Coluna ou conjunto de colunas que identificam unicamente cada linha de uma tabela.
+
+- **Chave Estrangeira (_Foreign Key_, ou FK):** Coluna ou conjunto de colunas que estabelecem uma ligação entre duas tabelas.
+
+### Existem 3 tipos de relacionamentos no SQL
+
+- **1:1 (Um-para-Um):** Cada linha de uma tabela está relacionada a, no máximo, uma linha de outra tabela.
+
+> Ex.: um usuário possui um endereço e um endereço só pode pertencer a um usuário.
+
+- **1:n (Um-para-Muitos):** Cada linha de uma tabela pode estar relacionada a múltiplas linhas de outra tabela.
+
+> Ex.: um filme possui um gênero, mas um mesmo gênero pode ser usado para vários filmes.
+
+- **n:n (Muitos-para-Muitos):** Linhas de uma tabela podem estar relacionadas a múltiplas linhas de outra tabela e vice-versa, implementado com a ajuda de uma tabela intermediária.
+
+> Ex.: um post do blog pode ser classificado com várias tags, e uma mesma tag pode ser usada para classificar vários posts.
+
+### Por que os relacionamentos são importantes?
+
+➜ Garantir integridade:
+
+- Relacionamentos ajudam a manter a consistência dos dados ao garantir que as associações entre tabelas sejam válidas
+
+  - **Exemplo:** se uma tabela Pedidos tem uma chave estrangeira que referencia a tabela Clientes, cada pedido deve estar associado a um cliente existente
+
+- As chaves estrangeiras impõem restrições que evitam a inserção de dados órfãos ou inconsistentes
+  - **Exemplo:** você não pode inserir um pedido para um cliente que não existe na tabela de Clientes
+
+➜ Evitar redundância:
+
+- Relacionamentos permitem a normalização do banco de dados, onde os dados são divididos em tabelas relacionadas de forma que cada peça de informação seja armazenada uma única vez
+
+  - **_Normalização_** _é um conjunto de regras que visa a organização de um projeto de banco de dados para reduzir a redundância de dados, aumentar a integridade de dados e o desempenho _
+
+- Com a redução da redundância, a manutenção dos dados se torna mais simples e menos propensa a erros
+- Atualizações feitas em uma tabela relacionada automaticamente se refletem nas associações, eliminando a necessidade de múltiplas atualizações em várias tabelas
+
+➜ Consultas eficientes:
+
+- Relacionamentos bem estruturados permitem a execução de operações de junção (JOIN) eficientes, que são essenciais para consultas complexas envolvendo múltiplas tabelas ao mesmo tempo
+
+  - **Exemplo:** para obter todos os pedidos feitos por um cliente, uma junção entre as tabelas Clientes e Pedidos pode ser realizada
+
+➜ Modelagem intuitiva:
+
+- Relacionamentos permitem que o modelo de dados do banco de dados reflita as relações do mundo real entre diferentes entidades
+
+➜ Controle de acesso e segurança:
+
+- Relacionamentos permitem controles de acesso mais precisos, permissões podem ser estabelecidas para que apenas determinados usuários possam modificar dados em tabelas específicas, enquanto outros possam apenas visualizar dados agregados ou relacionados
+
+- Através de relacionamentos bem definidos, é possível implementar políticas de segurança que garantem que os dados sensíveis sejam protegidos e acessados apenas conforme necessário, evitando vazamentos e acessos não autorizados
 
 
 ## Aula 18 - Relacionamentos 1:1 e 1:n
 
+| Tipo de relacionamento   | Como é definido                                                             | Explicação                                                                   | Exemplo                     |
+| ------------------------ | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------------- |
+| **1:1 (um para um)**     | A **chave estrangeira (`FOREIGN KEY`)** tem também a **restrição `UNIQUE`** | Cada registro de uma tabela está ligado **a no máximo um** registro da outra | Uma pessoa → um CPF         |
+| **1:n (um para muitos)** | A **chave estrangeira não tem `UNIQUE`**                                    | Um registro de uma tabela pode estar ligado a **vários** registros da outra  | Um cliente → vários pedidos |
 
+```postgresql
+-- 🔹 Tabela de Departamentos (departments)
+-- Um departamento pode ter vários funcionários (1:N)
+CREATE TABLE departments (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL
+);
+
+-- 🔹 Tabela de Funcionários (employees)
+-- Cada funcionário pertence a UM departamento (N:1)
+CREATE TABLE employees (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  phone VARCHAR(20),
+  
+  department_id INT NOT NULL,
+  FOREIGN KEY (department_id) REFERENCES departments(id)
+);
+
+-- 🔹 Tabela de Endereços (addresses)
+-- Cada funcionário tem UM endereço (1:1)
+CREATE TABLE addresses (
+  id SERIAL PRIMARY KEY,
+  street VARCHAR(100) NOT NULL,
+  number VARCHAR(10),
+  complement VARCHAR(255),
+  city VARCHAR(100) NOT NULL,
+  
+  employee_id INT UNIQUE,
+  FOREIGN KEY (employee_id) REFERENCES employees(id)
+);
+```
+
+| Relacionamento                                  | Tabelas envolvidas          | Chave usada          | Explicação                                                                                            |
+| ----------------------------------------------- | --------------------------- | -------------------- | ----------------------------------------------------------------------------------------------------- |
+| **1:N (um departamento → muitos funcionários)** | `departments` → `employees` | `department_id`      | Um departamento pode ter vários funcionários, mas cada funcionário pertence a apenas um departamento. |
+| **1:1 (um funcionário → um endereço)**          | `employees` → `addresses`   | `employee_id UNIQUE` | O `UNIQUE` garante que cada funcionário tenha apenas um endereço.                                     |
+
+### Tipos de JOIN
+
+| Elemento | Função | Exemplo | Resultado |
+|-----------|--------|----------|------------|
+| `JOIN` | Combina dados de **duas ou mais tabelas** com base em uma condição relacionada | `SELECT` * `FROM` employees `JOIN` departments `ON` employees.department_id = departments.id; | Mostra informações dos funcionários **junto com** os dados dos seus departamentos |
+| `INNER JOIN` | Retorna apenas as **linhas que têm correspondência** nas duas tabelas | `SELECT` e.name, d.name `FROM` employees e `INNER JOIN` departments d `ON` e.department_id = d.id; | Exibe apenas funcionários que **pertencem a um departamento existente** |
+| `LEFT JOIN` | Retorna **todas as linhas da tabela à esquerda** (mesmo sem correspondência na da direita) | `SELECT` e.name, d.name `FROM` employees e `LEFT JOIN` departments d `ON` e.department_id = d.id; | Mostra todos os funcionários, e `NULL` onde o departamento não existir |
+| `RIGHT JOIN` | Retorna **todas as linhas da tabela à direita** | `SELECT` e.name, d.name `FROM` employees e `RIGHT JOIN` departments d `ON` e.department_id = d.id; | Mostra todos os departamentos, mesmo os que **não têm funcionários** |
+| `FULL JOIN` | Retorna **todas as linhas de ambas as tabelas**, combinando quando há correspondência | `SELECT` e.name, d.name `FROM` employees e `FULL JOIN` departments d ON e.department_id = d.id; | Junta tudo — funcionários e departamentos, com `NULL` onde não houver vínculo |
+| `CROSS JOIN` | Faz o **produto cartesiano** entre as tabelas (todas as combinações possíveis) | `SELECT` e.name, d.name `FROM` employees e `CROSS JOIN` departments d; | Combina **cada funcionário com todos os departamentos** (sem condição) |
+
+> Usamos um **alias (apelido)** para uma tabela em SQL, fazemos isso para escrever menos e deixar o código mais legível.
+> 
+> **Exemplo sem alias (apelido):**
+> ```postgresql
+> SELECT employees.name, departments.name
+> FROM employees
+> INNER JOIN departments ON employees.department_id = departments.id;
+>```
+> **Exemplo com alias (apelido):**
+> ```postgresql
+> SELECT e.name, d.name
+> FROM employees e
+> INNER JOIN departments d ON e.department_id = d.id;
+>```
 
 ## Aula 19 - Relacionamentos n:n
 
+O relacionamento muitos-para-muitos (N:N) ocorre quando um registro em uma tabela pode estar relacionado a vários registros em outra, e vice-versa.
 
+### Exemplo:
+Um aluno pode se matricular em vários cursos, e um curso pode ter vários alunos.
+
+Para representar isso no banco de dados, criamos uma tabela intermediária (ou de associação).
+Essa tabela contém as chaves estrangeiras (FOREIGN KEY) das duas tabelas que estamos relacionando — por exemplo, aluno_id e curso_id.
+
+```postgresql
+CREATE TABLE alunos (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE cursos (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL
+);
+
+-- 🔹 Tabela intermediária (junção)
+CREATE TABLE alunos_cursos (
+  aluno_id INT REFERENCES alunos(id),
+  curso_id INT REFERENCES cursos(id),
+  PRIMARY KEY (aluno_id, curso_id)  -- impede duplicações
+);
+```
+
+> O relacionamento n:n é sempre implementado com uma tabela intermediária, que guarda as chaves estrangeiras das duas tabelas relacionadas.
+
+**Obs:** uma forma comum de nomear as tabelas intermediárias é juntando os nomes das tabelas que estão sendo relacionadas, por exemplo, student_courses.
 
 ## Aula 20 - Integridade Referencial
 
 
 
 ## Aula 21 - Exercício 3: Tabelas Relacionadas
+
+Crie um banco de dados usando SQL para um sistema hospitalar para controle de pacientes e consultas. Serão 5 tabelas, para pacientes, consultas, médicos, especialidades e tratamentos. que deverão ser criadas seguindo os seguintes requisitos de relacionamento:
+
+* Os pacientes devem possuir nome completo, data de nascimento, gênero, telefone e endereço.
+
+* Os médicos devem possuir nome completo, telefone e também uma especialização (da tabela de especializações).
+
+* As especializações só precisam de um nome/título, e podem ser usadas para múltiplos médicos (ex.: a linha “Cardiologia” pode ser a especialização de 3 médicos simultaneamente).
+
+* As consultas são intermediárias entre pacientes e médicos, onde um paciente pode se consultar com vários médicos diferentes e um médico pode atender vários pacientes. As consultas também precisam possuir as informações: data de quando foi realizada, observações e tipo de atendimento (ex.: plano de saúde ou particular).
+
+* Por fim, os tratamentos só podem ser criados para uma consulta específica, porém uma mesma consulta pode ter mais de um tratamento associado a ela. O tratamento deve possuir informações sobre os medicamentos a serem usados e uma descrição do tratamento em si.
+
+Além das tabelas, crie também as seguintes consultas SQL:
+
+* Obter todos os pacientes juntamente com suas consultas e os médicos que os atenderam.
+
+* Obter todas as consultas de um determinado médico, incluindo informações dos pacientes e observações.
+
+* Obter uma lista de todos os tratamentos prescritos em consultas, incluindo informações dos médicos e pacientes.
+
+* Obter todos os médicos com suas respectivas especializações.
+
+* Obter todas as consultas realizadas em uma data específica, incluindo informações de pacientes e médicos.
+
+* Obter uma lista de todos os pacientes que foram atendidos por médicos de uma determinada especialização.
+
+* Obter todos os tratamentos em andamento de um determinado paciente.
 
 ### ❗ [**Exercício Resolvido**](../19-Banco-de-Dados-SQL/Exercicios/Exercicio-03/Minha-Resolucao/) ❗
 
@@ -654,11 +793,7 @@ Atributos “nome”, “telefone”, “matrícula”, “data de nascimento”
 
 ## Aula 24 - Modelando um Banco de Dados - I
 
-
-
 ## Aula 25 - Modelando um Banco de Dados - II
-
-
 
 ## Aula 26 - Exercício 4: Modelando um BD Completo
 
@@ -670,7 +805,4 @@ Atributos “nome”, “telefone”, “matrícula”, “data de nascimento”
 
 ## Aula 28 - Encerramento
 
-
-
 ## Aula 29 - Prova Final com Certificado
-
