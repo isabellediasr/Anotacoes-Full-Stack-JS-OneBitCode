@@ -704,7 +704,38 @@ CREATE TABLE alunos_cursos (
 
 ## Aula 20 - Integridade Referencial
 
+A **integridade referencial** garante que os relacionamentos entre tabelas permaneçam consistentes.
+Ela impede que sejam inseridos, alterados ou removidos dados que **quebrem a relação** entre tabelas ligadas por **chaves estrangeiras** (`FOREIGN KEY`).
 
+**Exemplo:**
+
+```postgresql
+CREATE TABLE departamentos (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE funcionarios (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL,
+  departamento_id INT,
+  FOREIGN KEY (departamento_id) REFERENCES departamentos(id)
+);
+```
+
+> **Nesse caso:**
+>
+> * A coluna `departamento_id` em `funcionarios` depende da existência do `id` em `departamentos`.
+> * O banco **não permitirá** inserir um funcionário com `departamento_id` inexistente.
+> * Nem será possível **excluir um departamento** que ainda possua funcionários relacionados (a menos que se defina uma ação específica, como `ON DELETE CASCADE`).
+
+| Ação                                              | Descrição                                                                                                                                                    | Exemplo prático                                                                               | Exemplo SQL                                              |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| `ON DELETE CASCADE` / `ON UPDATE CASCADE`         | Remove ou atualiza automaticamente as linhas da tabela que contém a referência quando a linha correspondente é removida ou atualizada na tabela original.    | Ao excluir um departamento, todos os funcionários vinculados também são apagados.             | `FOREIGN KEY` (...) `REFERENCES` ... `ON DELETE CASCADE`     |
+| `ON DELETE RESTRICT` / `ON UPDATE RESTRICT`       | Impede a remoção ou atualização de uma linha na tabela original se existirem linhas correspondentes na tabela que a referencia. *(É o comportamento padrão)* | Impede apagar um departamento que ainda possui funcionários.                                  | `FOREIGN KEY` (...) `REFERENCES` ... `ON DELETE RESTRICT`    |
+| `ON DELETE SET NULL` / `ON UPDATE SET NULL`       | Define a coluna da chave estrangeira como `NULL` quando o registro pai é removido ou atualizado. *(A coluna deve aceitar valores nulos)*                     | Se o departamento for apagado, o `departamento_id` do funcionário vira `NULL`.                | `FOREIGN KEY` (...) `REFERENCES` ... `ON DELETE SET NULL`    |
+| `ON DELETE SET DEFAULT` / `ON UPDATE SET DEFAULT` | Define a coluna da chave estrangeira com o valor padrão configurado quando a linha correspondente é removida ou atualizada.                                  | Se o departamento for removido, os funcionários recebem um valor padrão no `departamento_id`. | `FOREIGN KEY` (...) `REFERENCES` ... `ON DELETE SET DEFAULT` |
+| `ON DELETE NO ACTION` / `ON UPDATE NO ACTION`     | Similar ao `RESTRICT`, mas a verificação de integridade é feita **somente no final da transação**, e não imediatamente.                                      | Em uma transação, é possível excluir primeiro e corrigir depois, antes da verificação final.  | `FOREIGN KEY` (...) `REFERENCES` ... `ON DELETE NO ACTION`   |
 
 ## Aula 21 - Exercício 3: Tabelas Relacionadas
 
@@ -793,7 +824,53 @@ Atributos “nome”, “telefone”, “matrícula”, “data de nascimento”
 
 ## Aula 24 - Modelando um Banco de Dados - I
 
+“Nossa empresa atua com serviços gerais de informática para pequenas e médias empresas, como manutenção de computadores, redes e impressoras, tanto em modelo help-desk quanto em service-desk. Sabendo disso, precisamos de um sistema automatizado que atue no gerenciamento dos **chamados** de atendimento técnico.
+
+Esse sistema deverá permitir que um chamado de atendimento seja aberto pelos nossos **clientes**, onde eles informarão <u>*qual é o problema*</u> e escolherão a <u>*categoria*</u> do atendimento, que pode ser problema de hardware, instalação ou configuração, suíte office, impressora, rede e outros. O chamado também precisa possuir um campo de <u>*“situação”*</u>, onde o <u>*cliente*</u> pode acompanhar o andamento e nossa <u>*equipe técnica*</u> pode ir atualizando conforme o andamento do atendimento.
+
+Outra funcionalidade importante é a de **mensagens/comentários** nos chamados. A equipe técnica e o cliente devem ser capazes de anexar mensagens no chamado, informando um ao outro sobre atualizações ou observações mais detalhadas do atendimento.
+
+Nesse sistema também queremos ter um perfil individual para cada **funcionário da equipe técnica**, para que ele possa ser identificado e responder diretamente aos chamados. Também precisamos que nossos clientes possuam seu próprio cadastro, assim os chamados podem ser consultados por cliente ou por responsável da equipe técnica, a fim de metrificar o desempenho de nossa equipe.”
+
+### Entidades
+
+* Chamados (tickets)
+
+  * descrição
+  * categoria
+  * situação
+  * data e hora de abertura (created_at)
+  * data de última atualização (updated_at)
+  * cliente que abriu
+  * técnico que respondeu
+
+* Clientes (empresas)
+
+  * cnpj
+  * nome
+  * usuário
+  * senha
+
+* Funcionários da equipe técnica
+
+  * nome
+  * usuário
+  * senha
+
+* Mensagens
+
+  * conteúdo
+  * data e hora de envio
+  * remetente
+  * chamado
+
+### Diagrama
+
+![driagrama-aula-24](media/diagrama-aula-24.png)
+
 ## Aula 25 - Modelando um Banco de Dados - II
+
+
 
 ## Aula 26 - Exercício 4: Modelando um BD Completo
 
